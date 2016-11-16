@@ -152,6 +152,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.vendor.bt.aac_frm_ctl.enabled=true
 
-#Set speaker protection cal tx path sampling rate to 48k
+# Set speaker protection cal tx path sampling rate to 48k
 PRODUCT_PROPERTY_OVERRIDES += \
 	vendor.audio.spkr_prot.tx.sampling_rate=48000
+
+# Enable FIFO scheduling for UI and Render threads by default
+PRODUCT_PROPERTY_OVERRIDES += \
+    sys.use_fifo_ui=1
