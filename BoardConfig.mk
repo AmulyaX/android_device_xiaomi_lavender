@@ -23,6 +23,10 @@
 
 include device/xiaomi/sdm660-common/BoardConfigCommon.mk
 
+# Assert
+TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
+TARGET_OTA_ASSERT_DEVICE := lavender
+
 # AVB
 BOARD_AVB_ENABLE := true
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --set_hashtree_disabled_flag
@@ -46,6 +50,10 @@ DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
 # Platform
 BOARD_VENDOR_PLATFORM := xiaomi-sdm660
+
+# Releasetools
+TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_lavender
+TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
 
 # Vendor Security patch level
 VENDOR_SECURITY_PATCH := 2018-06-05
