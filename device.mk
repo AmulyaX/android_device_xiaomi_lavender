@@ -332,6 +332,10 @@ PRODUCT_PACKAGES += \
     ueventd.qcom.rc \
     init.target.rc \
     fstab.qcom
+	
+# Recovery
+PRODUCT_PACKAGES += \
+    librecovery_updater_lavender
 
 # RCS
 PRODUCT_PACKAGES += \
