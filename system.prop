@@ -189,3 +189,6 @@ persist.camera.preview.ubwc=0
 
 # Create zram disk
 ro.config.zram=true
+
+# Property for backup NTP Server
+persist.backup.ntpServer="0.pool.ntp.org"
