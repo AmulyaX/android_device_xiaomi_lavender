@@ -50,7 +50,7 @@ LOCAL_MODULE       := init.target.rc
 LOCAL_MODULE_TAGS  := optional eng
 LOCAL_MODULE_CLASS := ETC
 LOCAL_SRC_FILES    := $(LOCAL_MODULE)
-LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)/init/hw
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
@@ -65,11 +65,12 @@ include $(CLEAR_VARS)
 LOCAL_MODULE       := fstab.qcom
 LOCAL_MODULE_TAGS  := optional eng
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := $(LOCAL_MODULE)
-LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)
-ifeq ($(ENABLE_VENDOR_IMAGE), true)
-LOCAL_POST_INSTALL_CMD := echo $(VENDOR_FSTAB_ENTRY) >> $(TARGET_ROOT_OUT)/$(LOCAL_MODULE)
+ifeq ($(ENABLE_AB), true)
+LOCAL_SRC_FILES    := fstab_AB_variant.qcom
+else
+LOCAL_SRC_FILES    := fstab_non_AB_variant.qcom
 endif
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)
 include $(BUILD_PREBUILT)
 
 ifeq ($(strip $(BOARD_HAS_QCOM_WLAN)),true)
@@ -78,7 +79,7 @@ LOCAL_MODULE       := wpa_supplicant_overlay.conf
 LOCAL_MODULE_TAGS  := optional
 LOCAL_MODULE_CLASS := ETC
 LOCAL_SRC_FILES    := $(LOCAL_MODULE)
-LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)/wifi
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR)/etc/wifi
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
@@ -86,7 +87,7 @@ LOCAL_MODULE       := p2p_supplicant_overlay.conf
 LOCAL_MODULE_TAGS  := optional
 LOCAL_MODULE_CLASS := ETC
 LOCAL_SRC_FILES    := $(LOCAL_MODULE)
-LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)/wifi
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR)/etc/wifi
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
@@ -122,10 +123,13 @@ LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)/wifi
 include $(BUILD_PREBUILT)
 
 # Create symbolic links for WLAN
-$(shell mkdir -p $(TARGET_OUT_ETC)/firmware/wlan/qca_cld; \
-ln -sf /system/etc/wifi/WCNSS_qcom_cfg.ini \
-$(TARGET_OUT_ETC)/firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini)
+$(shell mkdir -p $(TARGET_OUT_VENDOR)/firmware/wlan/qca_cld; \
+ln -sf /vendor/etc/wifi/WCNSS_qcom_cfg.ini \
+$(TARGET_OUT_VENDOR)/firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini)
 endif
+
+#Create dsp directory
+$(shell mkdir -p $(TARGET_OUT_VENDOR)/lib/dsp)
 
 # Create symbolic links for msadp
 $(shell  mkdir -p $(TARGET_OUT_VENDOR)/firmware; \

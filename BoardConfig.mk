@@ -19,13 +19,6 @@ TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a53
 
-ifeq ($(TARGET_USES_AOSP), true)
-   TARGET_HW_DISK_ENCRYPTION := false
-else
-   #Enable HW based full disk encryption
-   TARGET_HW_DISK_ENCRYPTION := true
-endif
-
 TARGET_NO_BOOTLOADER := false
 TARGET_USES_UEFI := true
 TARGET_NO_KERNEL := false
@@ -43,6 +36,7 @@ BOARD_USE_LEGACY_UI := true
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x04000000
 
+ifeq ($(ENABLE_AB), true)
 #A/B related defines
 AB_OTA_UPDATER := true
 # Full A/B partiton update set
@@ -52,14 +46,25 @@ AB_OTA_PARTITIONS ?= boot system
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 TARGET_NO_RECOVERY := true
 BOARD_USES_RECOVERY_AS_BOOT := true
-ifeq ($(ENABLE_VENDOR_IMAGE), true)
-TARGET_RECOVERY_FSTAB := device/qcom/sdm660_64/recovery_vendor_variant.fstab
 else
-TARGET_RECOVERY_FSTAB := device/qcom/sdm660_64/recovery.fstab
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x04000000
+BOARD_CACHEIMAGE_PARTITION_SIZE := 268435456
+BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
+#TARGET_RECOVERY_UPDATER_LIBS += librecovery_updater_msm
 endif
 
-ifneq ($(AB_OTA_UPDATER),true)
-   TARGET_RECOVERY_UPDATER_LIBS += librecovery_updater_msm
+ifeq ($(ENABLE_AB), true)
+  ifeq ($(ENABLE_VENDOR_IMAGE), true)
+    TARGET_RECOVERY_FSTAB := device/qcom/sdm660_64/recovery_AB_split_variant.fstab
+  else
+    TARGET_RECOVERY_FSTAB := device/qcom/sdm660_64/recovery_AB_non-split_variant.fstab
+  endif
+else
+  ifeq ($(ENABLE_VENDOR_IMAGE), true)
+    TARGET_RECOVERY_FSTAB := device/qcom/sdm660_64/recovery_non-AB_split_variant.fstab
+  else
+    TARGET_RECOVERY_FSTAB := device/qcom/sdm660_64/recovery_non-AB_non-split_variant.fstab
+  endif
 endif
 
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3221225472
@@ -68,11 +73,13 @@ BOARD_PERSISTIMAGE_PARTITION_SIZE := 33554432
 BOARD_PERSISTIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
 
+#Enable split vendor image
+ENABLE_VENDOR_IMAGE := true
 ifeq ($(ENABLE_VENDOR_IMAGE), true)
 BOARD_VENDORIMAGE_PARTITION_SIZE := 838860800
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_COPY_OUT_VENDOR := vendor
-VENDOR_FSTAB_ENTRY := "/dev/block/bootdevice/by-name/vendor     /vendor            ext4   ro,barrier=1,discard                             wait,slotselect,verify"
+BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 endif
 
 # Enable suspend during charger mode
@@ -80,7 +87,7 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 
 TARGET_USES_ION := true
 TARGET_USES_NEW_ION_API :=true
-#TARGET_USES_QCOM_BSP :=true
+TARGET_USES_QCOM_DISPLAY_BSP := true
 
 #Gralloc h/w specif flags
 TARGET_USES_HWC2 := true
@@ -115,7 +122,7 @@ TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 MAX_VIRTUAL_DISPLAY_DIMENSION := 4096
 
 BOARD_USES_GENERIC_AUDIO := true
-USE_CAMERA_STUB := false
+USE_CAMERA_STUB := true
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 TARGET_NO_RPC := true
 
@@ -130,7 +137,7 @@ TARGET_COMPILE_WITH_MSM_KERNEL := true
 TARGET_PD_SERVICE_ENABLED := true
 
 #Enable HW based full disk encryption
-#TARGET_HW_DISK_ENCRYPTION := true
+TARGET_HW_DISK_ENCRYPTION := true
 
 TARGET_CRYPTFS_HW_PATH := device/qcom/common/cryptfs_hw
 
@@ -166,4 +173,6 @@ TARGET_USES_IMS := true
 ADD_RADIO_FILES := true
 TARGET_RECOVERY_UI_LIB := librecovery_ui_msm
 
-
+ifneq ($(AB_OTA_UPDATER),true)
+    TARGET_RECOVERY_UPDATER_LIBS += librecovery_updater_msm
+endif

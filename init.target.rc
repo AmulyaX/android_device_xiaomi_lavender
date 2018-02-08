@@ -28,6 +28,9 @@
 #
 
 on early-init
+    mkdir /firmware 0771 system system
+    mkdir /bt_firmware 0771 system system
+    mkdir /dsp 0771 media media
 
 on init
     write /dev/stune/foreground/schedtune.sched_boost_no_override 1
@@ -39,23 +42,25 @@ on init
     write /dev/stune/top-app/schedtune.colocate 1
 
 on fs
-    wait /dev/block/bootdevice
-    mount_all fstab.qcom
-    swapon_all fstab.qcom
+    wait /dev/block/platform/soc/${ro.boot.bootdevice}
+    symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
+    mount_all /vendor/etc/fstab.qcom
+    swapon_all /vendor/etc/fstab.qcom
 
     # Keeping following partitions outside fstab file. As user may not have
     # these partition flashed on the device. Failure to mount any partition in fstab file
     # results in failure to launch late-start class.
 
     wait /dev/block/bootdevice/by-name/persist
-    mount ext4 /dev/block/bootdevice/by-name/persist /persist nosuid nodev barrier=1
+    mount ext4 /dev/block/bootdevice/by-name/persist /persist nosuid nodev noatime barrier=1
     mkdir /persist/data 0700 system system
     mkdir /persist/bms 0700 root system
     restorecon_recursive /persist
+    write /sys/kernel/boot_adsp/boot 1
 
 on post-fs
     start qseecomd
-    exec - root root root -- /system/bin/init.qti.qseecomd.sh
+    exec - system system -- /vendor/bin/init.qti.qseecomd.sh
     write /dev/ipa 1
 
 on init
@@ -67,6 +72,7 @@ on post-fs-data
     mkdir /data/tombstones/wcnss 0771 system system
     mkdir /data/tombstones/dsps 0771 system system
     mkdir /data/vendor/hbtp 0750 system system
+    mkdir /persist/qti_fp 0700 system system
     mkdir /data/misc/seemp 0700 system system
     mkdir /data/misc/tloc 0700 system drmrpc
 
@@ -97,7 +103,7 @@ on boot
     chown system system /persist/speccfg/partition
 
 #Load WLAN driver
-   insmod /system/lib/modules/qca_cld3/qca_cld3_wlan.ko
+   insmod /vendor/lib/modules/qca_cld3/qca_cld3_wlan.ko
    setprop wlan.driver.status "ok"
 
 #Peripheral manager
@@ -156,7 +162,7 @@ service qseecomd /vendor/bin/qseecomd
    user root
    group root
 
-#service mpdecision /system/bin/mpdecision --avg_comp
+#service mpdecision /system/vendor/bin/mpdecision --avg_comp
 #   user root
 #   disabled
 #
@@ -182,12 +188,17 @@ service thermal-engine /system/vendor/bin/thermal-engine
 #    class core
 #    oneshot
 #
-service time_daemon /system/bin/time_daemon
+service time_daemon /system/vendor/bin/time_daemon
    class late_start
    user root
    group root
 
-service adsprpcd /system/bin/adsprpcd audiopd
+service adsprpcd_root /system/bin/adsprpcd
+   class main
+   user media
+   group media
+
+service adsprpcd /system/vendor/bin/adsprpcd audiopd
    class main
    user media
    group media
@@ -198,49 +209,49 @@ service hbtp /system/vendor/bin/hbtp_daemon
     group system
     disabled
 
-service audiod /system/bin/audiod
+service audiod /system/vendor/bin/audiod
    class late_start
    user system
    group system
 #
-#service usf_tester /system/bin/usf_tester
+#service usf_tester /system/vendor/bin/usf_tester
 #    user system
 #    group system inet
 #    disabled
 #
-#service usf_epos /system/bin/usf_epos
+#service usf_epos /system/vendor/bin/usf_epos
 #    user system
 #    group system inet
 #    disabled
 #
-#service usf_gesture /system/bin/usf_gesture
-#    user system
-#    group system inet
-#    disabled
-#
-
-#service usf_sync_gesture /system/bin/usf_sync_gesture
+#service usf_gesture /system/vendor/bin/usf_gesture
 #    user system
 #    group system inet
 #    disabled
 #
 
-#service usf_p2p /system/bin/usf_p2p
+#service usf_sync_gesture /system/vendor/bin/usf_sync_gesture
 #    user system
 #    group system inet
 #    disabled
 #
-#service usf_hovering /system/bin/usf_hovering
+
+#service usf_p2p /system/vendor/bin/usf_p2p
 #    user system
 #    group system inet
 #    disabled
 #
-#service usf_proximity /system/bin/usf_proximity
+#service usf_hovering /system/vendor/bin/usf_hovering
 #    user system
 #    group system inet
 #    disabled
 #
-#service usf-post-boot /system/bin/sh /system/etc/usf_post_boot.sh
+#service usf_proximity /system/vendor/bin/usf_proximity
+#    user system
+#    group system inet
+#    disabled
+#
+#service usf-post-boot /system/vendor/bin/sh /system/etc/usf_post_boot.sh
 #    class late_start
 #    user root
 #    disabled
@@ -345,7 +356,7 @@ service pd_mapper /system/vendor/bin/pd-mapper
 #   group gps system qcom_diag diag log inet net_raw
 #   disabled
 
-on property:sys.ims.QMI_DAEMON_STATUS=1
+on property:vendor.ims.QMI_DAEMON_STATUS=1
     start imsdatadaemon
 
 service ims_rtp_daemon /system/vendor/bin/ims_rtp_daemon
@@ -354,15 +365,15 @@ service ims_rtp_daemon /system/vendor/bin/ims_rtp_daemon
    group radio diag inet log
    disabled
 
-service imscmservice /system/vendor/bin/imscmservice
+service vendor.imsrcsservice /system/vendor/bin/imsrcsd
    class main
    user system
    group radio diag inet log
    disabled
 
-on property:sys.ims.DATA_DAEMON_STATUS=1
+on property:vendor.ims.DATA_DAEMON_STATUS=1
     start ims_rtp_daemon
-    start imscmservice
+    start vendor.imsrcsservice
 
 
 service ppd /system/vendor/bin/mm-pp-dpps
@@ -394,6 +405,8 @@ on charger
     load_system_props
     start qcom-post-boot
     start hvdcp_opti
+    setprop sys.usb.configfs 1
+    start power_off_alarm
 
 #
 #service nqs /system/bin/nqs
@@ -402,7 +415,7 @@ on charger
 #    user system
 #    group drmrpc
 #
-#service adsprpcd /system/bin/adsprpcd
+#service adsprpcd /system/vendor/bin/adsprpcd
 #   class main
 #   user media
 #   group media
@@ -415,22 +428,27 @@ on charger
 #    group system
 
 service seempd /system/bin/seempd
-class late_start
-user system
-group system sdcard_rw
-socket seempdw dgram 0666 system system
+    class late_start
+    user system
+    group system sdcard_rw
+    socket seempdw dgram 0666 system system
+
+service qfp-daemon /vendor/bin/qfp-daemon
+    class late_start
+    user system
+    group system drmrpc diag input
 
 service tlocd /system/bin/tloc_daemon
     class late_start
     user system
     group drmrpc
 
-service hvdcp_opti /system/bin/hvdcp_opti
+service hvdcp_opti /system/vendor/bin/hvdcp_opti
      class main
      user root
      group system wakelock
 
-service smcinvoked /system/vendor/bin/smcinvoked
+service smcinvoked /system/bin/smcinvoked
    class main
    user system
    group system
