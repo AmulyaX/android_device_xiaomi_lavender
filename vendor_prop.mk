@@ -168,3 +168,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.recomputecrop=0 \
     persist.hwc.ptor.enable=true \
     debug.sf.gpu_comp_tiling=1
+
+# Fling
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.min.fling_velocity=160 \
+    ro.max.fling_velocity=20000
