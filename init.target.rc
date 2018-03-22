@@ -74,7 +74,7 @@ on post-fs-data
     mkdir /data/vendor/hbtp 0750 system system
     mkdir /persist/qti_fp 0700 system system
     mkdir /data/misc/seemp 0700 system system
-    mkdir /data/misc/tloc 0700 system drmrpc
+    mkdir /data/vendor/tloc 0700 system drmrpc
 
 on boot
     start rmt_storage
@@ -438,10 +438,10 @@ service qfp-daemon /vendor/bin/qfp-daemon
     user system
     group system drmrpc diag input
 
-service tlocd /system/bin/tloc_daemon
+service vendor.tlocd /vendor/bin/tloc_daemon
     class late_start
     user system
-    group drmrpc
+    group drmrpc gps net_raw
 
 service hvdcp_opti /system/vendor/bin/hvdcp_opti
      class main
