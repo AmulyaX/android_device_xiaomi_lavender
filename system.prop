@@ -148,7 +148,7 @@ ro.hwui.text_large_cache_width=2048
 ro.hwui.text_large_cache_height=2048
 
 #Bringup properties
-persist.radio.atfwd.start=true
+persist.vendor.radio.atfwd.start=true
 
 #property to enable VDS WFD solution
 persist.hwc.enable_vds=1
