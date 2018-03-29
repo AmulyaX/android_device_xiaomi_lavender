@@ -171,9 +171,6 @@ camera.aux.packagelist=org.codeaurora.snapcam
 #disable UBWC for camera
 persist.camera.preview.ubwc=0
 
-# Create zram disk
-ro.vendor.qti.config.zram=true
-
 #set maximum supported adapter voltage
 persist.chg.max_volt_mv=9000
 
