@@ -321,3 +321,6 @@ PRODUCT_PACKAGES += android.hardware.thermal@1.0-impl \
                     android.hardware.thermal@1.0-service
 
 SDM660_DISABLE_MODULE := true
+
+#Property for setting the max timeout of autosuspend
+PRODUCT_PROPERTY_OVERRIDES += sys.autosuspend.timeout=500000
