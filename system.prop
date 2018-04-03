@@ -29,6 +29,15 @@ debug.gralloc.enable_fb_ubwc=1
 dalvik.vm.heapsize=36m
 dev.pm.dyn_samplingrate=1
 persist.demo.hdmirotationlock=false
+#Disable Skip Validate
+sdm.debug.disable_skip_validate=1
+
+#Property to enable display default color mode
+vendor.display.enable_default_color_mode=1
+
+# Display Properties as per treble compliance
+vendor.gralloc.enable_fb_ubwc=1
+vendor.display.disable_skip_validate=1
 
 #ro.hdmi.enable=true
 #
@@ -80,6 +89,7 @@ persist.bt.a2dp.aac_disable=true
 
 # System property for cabl
 ro.qualcomm.cabl=2
+ro.vendor.display.cabl=2
 
 #
 # System props for telephony
@@ -174,13 +184,8 @@ persist.camera.preview.ubwc=0
 #set maximum supported adapter voltage
 persist.chg.max_volt_mv=9000
 
-#Property to enable display default color mode
-vendor.display.enable_default_color_mode=1
 
 # Property for backup NTP Server
 persist.backup.ntpServer="0.pool.ntp.org"
 # enable IZat OptInApp overlay
 persist.vendor.overlay.izat.optin=rro
-
-#Disable Skip Validate
-sdm.debug.disable_skip_validate=1
