@@ -220,6 +220,21 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/privapp-permissions-qti.xml:system/etc/permissions/privapp-permissions-qti.xml \
     $(LOCAL_PATH)/configs/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml
 
+# OMX
+PRODUCT_PACKAGES += \
+    libc2dcolorconvert \
+    libextmedia_jni \
+    libmm-omxcore \
+    libOmxAacEnc \
+    libOmxAmrEnc \
+    libOmxCore \
+    libOmxEvrcEnc \
+    libOmxG711Enc \
+    libOmxQcelp13Enc \
+    libOmxVdec \
+    libOmxVenc \
+    libstagefrighthw
+
 # WLAN driver configuration file
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
