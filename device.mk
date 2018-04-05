@@ -153,19 +153,23 @@ PRODUCT_PACKAGES += \
     wpa_supplicant_overlay.conf \
     p2p_supplicant_overlay.conf
 
-#Display/Graphics
+# Display
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
     android.hardware.graphics.allocator@2.0-service \
-    android.hardware.graphics.mapper@2.0-impl \
     android.hardware.graphics.composer@2.1-impl \
     android.hardware.graphics.composer@2.1-service \
+    android.hardware.graphics.mapper@2.0-impl \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service \
-    android.hardware.light@2.0-impl \
-    android.hardware.light@2.0-service \
-    android.hardware.configstore@1.0-service \
-    android.hardware.broadcastradio@1.0-impl
+    copybit.sdm660 \
+    gralloc.sdm660 \
+    hwcomposer.sdm660 \
+    libdisplayconfig \
+    libqdMetaData.system \
+    liboverlay \
+    libtinyxml \
+    memtrack.sdm660
 
 PRODUCT_PACKAGES += \
     vendor.display.color@1.0-service \
