@@ -167,6 +167,14 @@ PRODUCT_PACKAGES += \
     vendor.display.color@1.0-service \
     vendor.display.color@1.0-impl
 
+# FBE support
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/bin/init.qti.qseecomd.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qti.qseecomd.sh
+
+# For android_filesystem_config.h
+PRODUCT_PACKAGES += \
+    fs_config_files
+
 # WLAN driver configuration file
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
@@ -228,9 +236,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.vr.high_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vr.high_performance.xml
 
-# FBE support
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/bin/init.qti.qseecomd.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qti.qseecomd.sh
 # VB xml
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.verified_boot.xml:system/etc/permissions/android.software.verified_boot.xml
@@ -247,10 +252,6 @@ PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/msm_irqbalance_sdm630.conf:$(TARGET_
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 
 PRODUCT_VENDOR_MOVE_ENABLED := true
-
-#for android_filesystem_config.h
-PRODUCT_PACKAGES += \
-    fs_config_files
 
 #for wlan
 PRODUCT_PACKAGES += \
