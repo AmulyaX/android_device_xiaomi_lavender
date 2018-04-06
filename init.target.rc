@@ -102,6 +102,9 @@ on boot
     chown system system /persist/speccfg/submask
     chown system system /persist/speccfg/partition
 
+#Create folder dump yuv images while debugging
+    mkdir /data/vendor/camera 0770 camera camera
+
 #Load WLAN driver
    insmod /vendor/lib/modules/qca_cld3/qca_cld3_wlan.ko
    setprop wlan.driver.status "ok"
