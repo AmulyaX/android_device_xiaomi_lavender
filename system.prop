@@ -222,7 +222,7 @@ persist.dirac.acs.ignore_error=1
 ro.audio.soundfx.dirac=true
 
 #Property to enable display default color mode
-vendor.display.enable_default_color_mode=1
+vendor.display.enable_default_color_mode=0
 
 # Property for backup NTP Server
 persist.backup.ntpServer="0.pool.ntp.org"
