@@ -29,19 +29,22 @@
 
 NON-HLOS.bin            /dev/block/bootdevice/by-name/modem
 BTFM.bin                /dev/block/bootdevice/by-name/bluetooth
+dspso.bin               /dev/block/bootdevice/by-name/dsp
+mdtpsecapp.mbn          /dev/block/bootdevice/by-name/mdtpsecapp
+mdtp.img                /dev/block/bootdevice/by-name/mdtp
+
 sbl1.mbn                /dev/block/bootdevice/by-name/sbl1
 tz.mbn                  /dev/block/bootdevice/by-name/tz
 rpm.mbn                 /dev/block/bootdevice/by-name/rpm
 emmc_appsboot.mbn       /dev/block/bootdevice/by-name/aboot
 hyp.mbn                 /dev/block/bootdevice/by-name/hyp
-pmic.mbn                /dev/block/bootdevice/by-name/pmic
+pmic.elf                /dev/block/bootdevice/by-name/pmic
 cmnlib.mbn              /dev/block/bootdevice/by-name/cmnlib
 cmnlib64.mbn            /dev/block/bootdevice/by-name/cmnlib64
-keymaster.mbn           /dev/block/bootdevice/by-name/keymaster
+keymaster64.mbn         /dev/block/bootdevice/by-name/keymaster
 xbl.elf                 /dev/block/bootdevice/by-name/xbl
 lksecapp.mbn            /dev/block/bootdevice/by-name/lksecapp
 devcfg.mbn              /dev/block/bootdevice/by-name/devcfg
-adspso.mbn              /dev/block/bootdevice/by-name/dsp
 abl.elf                 /dev/block/bootdevice/by-name/abl
 
 # filename + .bak       backup partition
@@ -51,10 +54,10 @@ tz.mbn.bak              /dev/block/bootdevice/by-name/tzbak
 rpm.mbn.bak             /dev/block/bootdevice/by-name/rpmbak
 emmc_appsboot.mbn.bak   /dev/block/bootdevice/by-name/abootbak
 hyp.mbn.bak             /dev/block/bootdevice/by-name/hypbak
-pmic.mbn.bak            /dev/block/bootdevice/by-name/pmicbak
+pmic.elf.bak            /dev/block/bootdevice/by-name/pmicbak
 cmnlib.mbn.bak          /dev/block/bootdevice/by-name/cmnlibbak
 cmnlib64.mbn.bak        /dev/block/bootdevice/by-name/cmnlib64bak
-keymaster.mbn.bak       /dev/block/bootdevice/by-name/keymasterbak
+keymaster64.mbn.bak     /dev/block/bootdevice/by-name/keymasterbak
 xbl.elf.bak             /dev/block/bootdevice/by-name/xblbak
 lksecapp.mbn.bak        /dev/block/bootdevice/by-name/lksecappbak
 devcfg.mbn.bak          /dev/block/bootdevice/by-name/devcfgbak
