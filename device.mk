@@ -194,6 +194,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml
 
+# Gatekeeper HAL
+PRODUCT_PACKAGES += \
+    android.hardware.gatekeeper@1.0-impl \
+    android.hardware.gatekeeper@1.0-service
+
 # GPS
 PRODUCT_PACKAGES += \
     gps.sdm660 \
@@ -362,22 +367,6 @@ PRODUCT_COPY_FILES += \
         frameworks/native/data/etc/android.hardware.opengles.aep.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.opengles.aep.xml
 
 TARGET_SUPPORT_SOTER := true
-
-#Enable QTI KEYMASTER and GATEKEEPER HIDLs
-ifeq ($(ENABLE_VENDOR_IMAGE), true)
-KMGK_USE_QTI_SERVICE := true
-endif
-
-#Enable KEYMASTER 4.0
-ENABLE_KM_4_0 := true
-
-#Enable AOSP KEYMASTER and GATEKEEPER HIDLs
-ifneq ($(KMGK_USE_QTI_SERVICE), true)
-PRODUCT_PACKAGES += android.hardware.gatekeeper@1.0-impl \
-                    android.hardware.gatekeeper@1.0-service \
-                    android.hardware.keymaster@3.0-impl \
-                    android.hardware.keymaster@3.0-service
-endif
 
 PRODUCT_PROPERTY_OVERRIDES += rild.libpath=/system/vendor/lib64/libril-qc-qmi-1.so
 
