@@ -55,17 +55,6 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 TARGET_SCREEN_HEIGHT := 2340
 TARGET_SCREEN_WIDTH := 1080
 
-# Default vendor configuration.
-ifeq ($(ENABLE_VENDOR_IMAGE),)
-ENABLE_VENDOR_IMAGE := true
-endif
-
-# Disable QTIC until it's brought up in split system/vendor
-# configuration to avoid compilation breakage.
-ifeq ($(ENABLE_VENDOR_IMAGE), true)
-#TARGET_USES_QTIC := false
-endif
-
 # Media
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/media/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
