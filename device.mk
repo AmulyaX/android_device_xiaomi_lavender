@@ -160,6 +160,7 @@ PRODUCT_PACKAGES += \
     hwcomposer.sdm660 \
     libdisplayconfig \
     libqdMetaData \
+    libqdMetaData.system \
     liboverlay \
     libtinyxml \
     memtrack.sdm660
