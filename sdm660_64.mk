@@ -19,7 +19,7 @@ ifeq ($(ENABLE_VENDOR_IMAGE), true)
 endif
 
 TARGET_USES_AOSP_FOR_AUDIO := true
-TARGET_ENABLE_QC_AV_ENHANCEMENTS := false
+TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 TARGET_DISABLE_DASH := true
 
 TARGET_KERNEL_VERSION := 4.4
@@ -123,7 +123,8 @@ endif
 
 # system prop for Bluetooth SOC type
 PRODUCT_PROPERTY_OVERRIDES += \
-    qcom.bluetooth.soc=cherokee
+    qcom.bluetooth.soc=cherokee \
+    vendor.qcom.bluetooth.soc=cherokee
 
 ifeq ($(strip $(BOARD_HAVE_QCOM_FM)),true)
 PRODUCT_BOOT_JARS += qcom.fmradio

@@ -29,6 +29,15 @@ debug.gralloc.enable_fb_ubwc=1
 dalvik.vm.heapsize=36m
 dev.pm.dyn_samplingrate=1
 persist.demo.hdmirotationlock=false
+#Disable Skip Validate
+sdm.debug.disable_skip_validate=1
+
+#Property to enable display default color mode
+vendor.display.enable_default_color_mode=1
+
+# Display Properties as per treble compliance
+vendor.gralloc.enable_fb_ubwc=1
+vendor.display.disable_skip_validate=1
 
 #ro.hdmi.enable=true
 #
@@ -47,7 +56,7 @@ media.aac_51_output_enabled=true
 mm.enable.smoothstreaming=true
 #media.settings.xml=/vendor/etc/media_profiles_vendor.xml
 #codecs:(PARSER_)AAC AC3 AMR_NB AMR_WB ASF AVI DTS FLV 3GP 3G2 MKV MP2PS MP2TS MP3 OGG QCP WAV FLAC AIFF APE DSD
-mm.enable.qcom_parser=13631487
+vendor.mm.enable.qcom_parser=13631487
 persist.mm.enable.prefetch=true
 
 #property to enable narrow search range for video encoding
@@ -68,7 +77,6 @@ ro.netflix.bsp_rev=Q660-13149-1
 # system props for the data modules
 #
 ro.use_data_netmgrd=true
-persist.data.netmgrd.qos.enable=true
 persist.data.mode=concurrent
 #system props for time-services
 persist.timed.enable=true
@@ -80,6 +88,7 @@ persist.bt.a2dp.aac_disable=true
 
 # System property for cabl
 ro.qualcomm.cabl=2
+ro.vendor.display.cabl=2
 
 #
 # System props for telephony
@@ -99,14 +108,6 @@ ro.bluetooth.wipower=true
 #
 
 #system prop for RmNet Data
-persist.rmnet.data.enable=true
-persist.data.wda.enable=true
-persist.data.df.dl_mode=5
-persist.data.df.ul_mode=5
-persist.data.df.agg.dl_pkt=10
-persist.data.df.agg.dl_size=4096
-persist.data.df.mux_count=8
-persist.data.df.iwlan_mux=9
 persist.data.df.dev_name=rmnet_usb0
 
 #
@@ -171,19 +172,11 @@ camera.aux.packagelist=org.codeaurora.snapcam
 #disable UBWC for camera
 persist.camera.preview.ubwc=0
 
-# Create zram disk
-ro.vendor.qti.config.zram=true
-
 #set maximum supported adapter voltage
 persist.chg.max_volt_mv=9000
 
-#Property to enable display default color mode
-vendor.display.enable_default_color_mode=1
 
 # Property for backup NTP Server
 persist.backup.ntpServer="0.pool.ntp.org"
 # enable IZat OptInApp overlay
 persist.vendor.overlay.izat.optin=rro
-
-#Disable Skip Validate
-sdm.debug.disable_skip_validate=1
