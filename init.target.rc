@@ -407,7 +407,7 @@ on property:init.svc.zygote=restarting
 on charger
     load_system_props
     start qcom-post-boot
-    start hvdcp_opti
+    start vendor.hvdcp_opti
     setprop sys.usb.configfs 1
     start power_off_alarm
 
@@ -446,7 +446,7 @@ service vendor.tlocd /vendor/bin/tloc_daemon
     user system
     group drmrpc gps net_raw
 
-service hvdcp_opti /system/vendor/bin/hvdcp_opti
+service vendor.hvdcp_opti /system/vendor/bin/hvdcp_opti
      class main
      user root
      group system wakelock
