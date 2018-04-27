@@ -76,8 +76,8 @@ ro.netflix.bsp_rev=Q660-13149-1
 #
 # system props for the data modules
 #
-ro.use_data_netmgrd=true
-persist.data.mode=concurrent
+ro.vendor.use_data_netmgrd=true
+persist.vendor.data.mode=concurrent
 #system props for time-services
 persist.timed.enable=true
 
