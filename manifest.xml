@@ -251,7 +251,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
        <version>1.0</version>
        <interface>
            <name>IRadioConfig</name>
-           <instance>radioconfig</instance>
+           <instance>default</instance>
        </interface>
     </hal>
     <!--UICC secure element -->
