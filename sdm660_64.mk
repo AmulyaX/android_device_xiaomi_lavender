@@ -68,7 +68,7 @@ PRODUCT_COPY_FILES += device/qcom/sdm660_64/whitelistedapps.xml:$(TARGET_COPY_OU
 
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    video.disable.ubwc=1
+    vendor.video.disable.ubwc=1
 
 ifneq ($(TARGET_DISABLE_DASH), true)
     PRODUCT_BOOT_JARS += qcmediaplayer
