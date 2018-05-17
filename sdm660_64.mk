@@ -25,11 +25,14 @@ TARGET_DISABLE_DASH := true
 TARGET_KERNEL_VERSION := 4.4
 BOARD_FRP_PARTITION_NAME := frp
 BOARD_HAVE_QCOM_FM := true
-TARGET_USES_NQ_NFC := false
+TARGET_USES_NQ_NFC := true
 
 ifeq ($(TARGET_USES_NQ_NFC),true)
 # Flag to enable and support NQ3XX chipsets
 NQ3XX_PRESENT := true
+
+PRODUCT_COPY_FILES += \
+    device/qcom/common/nfc/libnfc-brcm.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf
 endif
 
 # enable the SVA in UI area
@@ -48,7 +51,8 @@ PRODUCT_COPY_FILES += \
     device/qcom/sdm660_64/media_profiles.xml:system/etc/media_profiles.xml \
     device/qcom/sdm660_64/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_vendor.xml \
     device/qcom/sdm660_64/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
-    device/qcom/sdm660_64/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml
+    device/qcom/sdm660_64/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
+    device/qcom/sdm660_64/media_codecs_vendor_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_vendor_audio.xml
 PRODUCT_PROPERTY_OVERRIDES  += \
     media.settings.xml=/vendor/etc/media_profiles_vendor.xml
 endif #TARGET_ENABLE_QC_AV_ENHANCEMENTS

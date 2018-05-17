@@ -50,6 +50,8 @@ else
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x04000000
 BOARD_CACHEIMAGE_PARTITION_SIZE := 268435456
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
+# Enable System As Root even for non-A/B from P onwards
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 #TARGET_RECOVERY_UPDATER_LIBS += librecovery_updater_msm
 endif
 
@@ -99,7 +101,7 @@ ifeq ($(TARGET_KERNEL_VERSION),4.4)
 else
      BOARD_KERNEL_CMDLINE += console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 earlycon=msm_hsl_uart,0xc1b0000
 endif
-BOARD_KERNEL_CMDLINE += androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 sched_enable_hmp=1 sched_enable_power_aware=1 service_locator.enable=1 swiotlb=1
+BOARD_KERNEL_CMDLINE += androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 sched_enable_hmp=1 sched_enable_power_aware=1 service_locator.enable=1 swiotlb=1 firmware_class.path=/vendor/firmware_mnt/image
 endif
 
 BOARD_EGL_CFG := device/qcom/sdm660_64/egl.cfg
@@ -176,3 +178,6 @@ TARGET_RECOVERY_UI_LIB := librecovery_ui_msm
 ifneq ($(AB_OTA_UPDATER),true)
     TARGET_RECOVERY_UPDATER_LIBS += librecovery_updater_msm
 endif
+
+#Enable DRM plugins 64 bit compilation
+TARGET_ENABLE_MEDIADRM_64 := true
