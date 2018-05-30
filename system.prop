@@ -167,10 +167,10 @@ ro.vendor.sensors.sta_detect=true
 ro.vendor.sensors.mot_detect=true
 
 #Expose aux camera for below packages
-camera.aux.packagelist=org.codeaurora.snapcam
+vendor.camera.aux.packagelist=org.codeaurora.snapcam
 
 #disable UBWC for camera
-persist.camera.preview.ubwc=0
+persist.vendor.camera.preview.ubwc=0
 
 #set maximum supported adapter voltage
 persist.chg.max_volt_mv=9000
