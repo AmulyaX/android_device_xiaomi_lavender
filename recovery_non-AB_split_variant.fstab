@@ -29,7 +29,7 @@
 
 #device         mount point      fstype        [device2] [length=]
 
-/dev/block/bootdevice/by-name/system       /system         ext4    ro,barrier=1                                                    wait,verify
+/dev/block/bootdevice/by-name/system       /               ext4    ro,barrier=1                                                    wait,verify
 /dev/block/bootdevice/by-name/vendor       /vendor         ext4    ro,barrier=1                                                    wait,verify
 /dev/block/bootdevice/by-name/cache        /cache          ext4    noatime,nosuid,nodev,barrier=1,data=ordered                     wait,check
 /dev/block/bootdevice/by-name/userdata     /data           ext4    noatime,nosuid,nodev,barrier=1,data=ordered,noauto_da_alloc     wait,check,encryptable=footer
