@@ -632,6 +632,16 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         </interface>
     </hal>
 
+   <!-- IMS callinfo Service -->
+   <hal format="hidl">
+       <name>vendor.qti.ims.callinfo</name>
+       <transport>hwbinder</transport>
+       <version>1.0</version>
+       <interface>
+         <name>IService</name>
+         <instance>default</instance>
+       </interface>
+   </hal>
     <!-- IMS CM Service -->
     <hal format="hidl">
         <name>com.qualcomm.qti.imscmservice</name>
