@@ -67,7 +67,6 @@ on post-fs-data
     mkdir /data/tombstones/wcnss 0771 system system
     mkdir /data/tombstones/dsps 0771 system system
     mkdir /data/vendor/hbtp 0750 system system
-    mkdir /persist/qti_fp 0700 system system
     mkdir /data/misc/seemp 0700 system system
     mkdir /data/vendor/tloc 0700 system drmrpc
 
@@ -107,6 +106,8 @@ on boot
 #USB controller configuration
     setprop vendor.usb.rndis.func.name "rndis_bam"
     setprop vendor.usb.rmnet.func.name "rmnet_bam"
+    setprop vendor.usb.rmnet.inst.name "rmnet"
+    setprop vendor.usb.dpl.inst.name "dpl"
     write /sys/module/usb_f_qcrndis/parameters/rndis_dl_max_xfer_size 15916
     setprop sys.usb.configfs 1
 
@@ -197,12 +198,12 @@ service time_daemon /system/vendor/bin/time_daemon
    user root
    group root
 
-service adsprpcd_root /system/bin/adsprpcd
+service adsprpcd_root /vendor/bin/adsprpcd
    class main
    user media
    group media
 
-service adsprpcd /system/vendor/bin/adsprpcd audiopd
+service adsprpcd /vendor/bin/adsprpcd audiopd
    class main
    user media
    group media
@@ -217,6 +218,12 @@ service audiod /system/vendor/bin/audiod
    class late_start
    user system
    group system
+
+service cdsprpcd /vendor/bin/cdsprpcd
+   class main
+   user system
+   group system
+
 #
 #service usf_tester /system/vendor/bin/usf_tester
 #    user system
@@ -279,13 +286,16 @@ service audiod /system/vendor/bin/audiod
 #    chown system drmrpc /sys/devices/f9966000.i2c/i2c-1/1-0020/secure_touch
 #
 #
-service imsqmidaemon /system/vendor/bin/imsqmidaemon
+#
+## imsdatadaemon starts with root and UID will be downgraded to SYSTEM.
+service vendor.imsqmidaemon /system/vendor/bin/imsqmidaemon
     class main
     user system
     socket ims_qmid stream 0660 system radio
     group radio log diag
 
-service imsdatadaemon /system/vendor/bin/imsdatadaemon
+# imsdatadaemon starts with root and UID will be downgraded to SYSTEM.
+service vendor.imsdatadaemon /system/vendor/bin/imsdatadaemon
     class main
     user system
     socket ims_datad stream 0660 system radio
@@ -361,9 +371,9 @@ service pd_mapper /system/vendor/bin/pd-mapper
 #   disabled
 
 on property:vendor.ims.QMI_DAEMON_STATUS=1
-    start imsdatadaemon
+    start vendor.imsdatadaemon
 
-service ims_rtp_daemon /system/vendor/bin/ims_rtp_daemon
+service vendor.ims_rtp_daemon /system/vendor/bin/ims_rtp_daemon
    class main
    user system
    group radio diag inet log
@@ -372,11 +382,11 @@ service ims_rtp_daemon /system/vendor/bin/ims_rtp_daemon
 service vendor.imsrcsservice /system/vendor/bin/imsrcsd
    class main
    user system
-   group radio diag inet log
+   group radio diag inet log wakelock
    disabled
 
 on property:vendor.ims.DATA_DAEMON_STATUS=1
-    start ims_rtp_daemon
+    start vendor.ims_rtp_daemon
     start vendor.imsrcsservice
 
 
@@ -436,11 +446,6 @@ service seempd /system/bin/seempd
     user system
     group system sdcard_rw
     socket seempdw dgram 0666 system system
-
-service qfp-daemon /vendor/bin/qfp-daemon
-    class late_start
-    user system
-    group system drmrpc diag input
 
 service vendor.tlocd /vendor/bin/tloc_daemon
     class late_start

@@ -24,7 +24,6 @@ TARGET_DISABLE_DASH := true
 
 TARGET_KERNEL_VERSION := 4.4
 BOARD_FRP_PARTITION_NAME := frp
-BOARD_HAVE_QCOM_FM := true
 TARGET_USES_NQ_NFC := true
 
 ifeq ($(TARGET_USES_NQ_NFC),true)
@@ -68,7 +67,7 @@ PRODUCT_COPY_FILES += device/qcom/sdm660_64/whitelistedapps.xml:$(TARGET_COPY_OU
 
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    video.disable.ubwc=1
+    vendor.video.disable.ubwc=1
 
 ifneq ($(TARGET_DISABLE_DASH), true)
     PRODUCT_BOOT_JARS += qcmediaplayer
@@ -132,10 +131,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     qcom.bluetooth.soc=cherokee \
     vendor.qcom.bluetooth.soc=cherokee
 
-ifeq ($(strip $(BOARD_HAVE_QCOM_FM)),true)
-PRODUCT_BOOT_JARS += qcom.fmradio
-endif #BOARD_HAVE_QCOM_FM
-
 DEVICE_MANIFEST_FILE := device/qcom/sdm660_64/manifest.xml
 DEVICE_MATRIX_FILE   := device/qcom/common/compatibility_matrix.xml
 
@@ -158,8 +153,7 @@ endif
 
 # WLAN driver configuration file
 PRODUCT_COPY_FILES += \
-    device/qcom/sdm660_64/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini \
-    device/qcom/sdm660_64/wifi_concurrency_cfg.txt:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wifi_concurrency_cfg.txt
+    device/qcom/sdm660_64/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
 
 PRODUCT_PACKAGES += \
     wpa_supplicant_overlay.conf \
