@@ -28,6 +28,7 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a73
 
 TARGET_USES_64_BIT_BINDER := true
+BUILD_BROKEN_DUP_RULES := true
 
 # Android Verified Boot
 BOARD_AVB_ENABLE := true
