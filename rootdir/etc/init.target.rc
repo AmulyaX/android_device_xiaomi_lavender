@@ -54,8 +54,6 @@ on fs
     mkdir /mnt/vendor/persist/bms 0700 root system
     restorecon_recursive /mnt/vendor/persist
     write /sys/kernel/boot_adsp/boot 1
-    chown system system /dev/goodix_fp
-    #chmod 0644 /dev/goodix_fp
 
     chmod 0664 /sys/class/thermal/thermal_message/sconfig
     chown system system /sys/class/thermal/thermal_message/sconfig
