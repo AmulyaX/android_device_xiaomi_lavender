@@ -101,7 +101,6 @@ on boot
 
 #Load WLAN driver
    insmod /vendor/lib/modules/qca_cld3/qca_cld3_wlan.ko
-   setprop wlan.driver.status "ok"
 
 #USB controller configuration
     setprop vendor.usb.rndis.func.name "rndis_bam"
