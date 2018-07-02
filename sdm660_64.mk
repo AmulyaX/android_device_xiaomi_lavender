@@ -315,3 +315,6 @@ SDM660_DISABLE_MODULE := true
 PRODUCT_PROPERTY_OVERRIDES += sys.autosuspend.timeout=500000
 
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE:=true
+
+# Enable vndk-sp Libraries
+PRODUCT_PACKAGES += vndk_package
