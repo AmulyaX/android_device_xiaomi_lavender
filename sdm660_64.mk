@@ -126,7 +126,6 @@ endif
 
 # system prop for Bluetooth SOC type
 PRODUCT_PROPERTY_OVERRIDES += \
-    qcom.bluetooth.soc=cherokee \
     vendor.qcom.bluetooth.soc=cherokee
 
 DEVICE_MANIFEST_FILE := device/qcom/sdm660_64/manifest.xml
@@ -316,3 +315,5 @@ SDM660_DISABLE_MODULE := true
 
 #Property for setting the max timeout of autosuspend
 PRODUCT_PROPERTY_OVERRIDES += sys.autosuspend.timeout=500000
+
+PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE:=true
