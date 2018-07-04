@@ -50,8 +50,6 @@ PRODUCT_COPY_FILES += \
     device/qcom/sdm660_64/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
     device/qcom/sdm660_64/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
     device/qcom/sdm660_64/media_codecs_vendor_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_vendor_audio.xml
-PRODUCT_PROPERTY_OVERRIDES  += \
-    media.settings.xml=/vendor/etc/media_profiles_vendor.xml
 endif #TARGET_ENABLE_QC_AV_ENHANCEMENTS
 
 # video seccomp policy files
