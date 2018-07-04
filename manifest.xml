@@ -491,11 +491,11 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         </interface>
     </hal>
     <hal format="hidl">
-        <name>android.hardware.wifi.offload</name>
+        <name>vendor.qti.hardware.wifi.hostapd</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
-            <name>IOffload</name>
+            <name>IHostapdVendor</name>
             <instance>default</instance>
         </interface>
     </hal>
