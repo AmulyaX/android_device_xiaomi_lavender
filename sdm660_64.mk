@@ -323,3 +323,5 @@ PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE:=true
 
 # Enable vndk-sp Libraries
 PRODUCT_PACKAGES += vndk_package
+
+TARGET_MOUNT_POINTS_SYMLINKS := false
