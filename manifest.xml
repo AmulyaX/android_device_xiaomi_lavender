@@ -263,6 +263,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
            <name>ISecureElement</name>
            <instance>SIM1</instance>
            <instance>SIM2</instance>
+           <instance>eSE1</instance>
        </interface>
     </hal>
     <!-- RIL UIM REMOTE CLIENT -->
