@@ -111,23 +111,23 @@ on boot
     setprop sys.usb.configfs 1
 
 #Peripheral manager
-service per_mgr /system/vendor/bin/pm-service
+service vendor.per_mgr /system/vendor/bin/pm-service
     class core
     user system
     group system
     ioprio rt 4
 
-service per_proxy /system/vendor/bin/pm-proxy
+service vendor.per_proxy /system/vendor/bin/pm-proxy
     class core
     user system
     group system
     disabled
 
-on property:init.svc.per_mgr=running
-    start per_proxy
+on property:init.svc.vendor.per_mgr=running
+    start vendor.per_proxy
 
 on property:sys.shutdown.requested=*
-    stop per_proxy
+    stop vendor.per_proxy
 
 #start camera server as daemon
 #service qcamerasvr /system/bin/mm-qcamera-daemon
@@ -353,7 +353,7 @@ service mdtpd /system/vendor/bin/mdtpd
     user root
     group system radio drmrpc
 
-service pd_mapper /system/vendor/bin/pd-mapper
+service vendor.pd_mapper /system/vendor/bin/pd-mapper
      class core
 
 #
