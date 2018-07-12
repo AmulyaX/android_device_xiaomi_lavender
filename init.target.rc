@@ -385,7 +385,6 @@ service vendor.ims_rtp_daemon /system/vendor/bin/ims_rtp_daemon
    class main
    user system
    group radio diag inet log
-   disabled
 
 service vendor.imsrcsservice /system/vendor/bin/imsrcsd
    class main
@@ -393,7 +392,7 @@ service vendor.imsrcsservice /system/vendor/bin/imsrcsd
    group radio diag inet log wakelock
 
 on property:vendor.ims.DATA_DAEMON_STATUS=1
-    start vendor.ims_rtp_daemon
+    restart vendor.ims_rtp_daemon
 
 
 service ppd /system/vendor/bin/mm-pp-dpps
