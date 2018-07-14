@@ -141,8 +141,6 @@ TARGET_PD_SERVICE_ENABLED := true
 #Enable HW based full disk encryption
 TARGET_HW_DISK_ENCRYPTION := true
 
-TARGET_CRYPTFS_HW_PATH := device/qcom/common/cryptfs_hw
-
 # Enable dex pre-opt to speed up initial boot
 ifeq ($(HOST_OS),linux)
     ifeq ($(WITH_DEXPREOPT),)
