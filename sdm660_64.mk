@@ -35,6 +35,7 @@ endif
 # enable the SVA in UI area
 TARGET_USE_UI_SVA := true
 
+TARGET_USES_MKE2FS := true
 #QTIC flag
 -include $(QCPATH)/common/config/qtic-config.mk
 
@@ -128,6 +129,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 DEVICE_MANIFEST_FILE := device/qcom/sdm660_64/manifest.xml
 DEVICE_MATRIX_FILE   := device/qcom/common/compatibility_matrix.xml
+DEVICE_FRAMEWORK_MANIFEST_FILE := device/qcom/sdm660_64/framework_manifest.xml
 
 # Audio configuration file
 -include $(TOPDIR)hardware/qcom/audio/configs/sdm660/sdm660.mk
@@ -321,3 +323,7 @@ PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE:=true
 
 # Enable vndk-sp Libraries
 PRODUCT_PACKAGES += vndk_package
+
+TARGET_MOUNT_POINTS_SYMLINKS := false
+
+$(call inherit-product, build/make/target/product/product_launched_with_p.mk)
