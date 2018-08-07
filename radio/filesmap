@@ -46,6 +46,8 @@ xbl.elf                 /dev/block/bootdevice/by-name/xbl
 lksecapp.mbn            /dev/block/bootdevice/by-name/lksecapp
 devcfg.mbn              /dev/block/bootdevice/by-name/devcfg
 abl.elf                 /dev/block/bootdevice/by-name/abl
+vbmeta.img              /dev/block/bootdevice/by-name/vbmeta
+dtbo.img                /dev/block/bootdevice/by-name/dtbo
 
 # filename + .bak       backup partition
 
@@ -62,6 +64,8 @@ xbl.elf.bak             /dev/block/bootdevice/by-name/xblbak
 lksecapp.mbn.bak        /dev/block/bootdevice/by-name/lksecappbak
 devcfg.mbn.bak          /dev/block/bootdevice/by-name/devcfgbak
 abl.elf.bak             /dev/block/bootdevice/by-name/ablbak
+vbmeta.img.bak          /dev/block/bootdevice/by-name/vbmetabak
+dtbo.img.bak            /dev/block/bootdevice/by-name/dtbobak
 
 # For multiple file firmware images that differ from *.mbn and *.bin
 # you can specify filename.* to direct all files to the same location.
