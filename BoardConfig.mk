@@ -55,6 +55,10 @@ BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 #TARGET_RECOVERY_UPDATER_LIBS += librecovery_updater_msm
 endif
 
+# Set Header version for bootimage
+BOARD_BOOTIMG_HEADER_VERSION := 1
+BOARD_MKBOOTIMG_ARGS := --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
+
 ifeq ($(ENABLE_AB), true)
   ifeq ($(ENABLE_VENDOR_IMAGE), true)
     TARGET_RECOVERY_FSTAB := device/qcom/sdm660_64/recovery_AB_split_variant.fstab
