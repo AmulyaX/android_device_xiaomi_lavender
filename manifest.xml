@@ -643,6 +643,16 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>default</instance>
         </interface>
     </hal>
+   <!-- eSEPowerManager service -->
+    <hal format="hidl">
+        <name>vendor.qti.esepowermanager</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IEsePowerManager</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <!-- tui communicator service -->
   <hal format="hidl">
         <name>vendor.qti.hardware.tui_comm</name>
