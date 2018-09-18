@@ -88,6 +88,9 @@ on post-fs-data
     mkdir /data/preloads/demo 0755 system system
     start pa-cal-load
 
+    mkdir /data/thermal 0771 system system
+    mkdir /data/thermal/config 0771 system system
+
 on boot
     start rmt_storage
     start rfs_access
