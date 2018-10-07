@@ -199,6 +199,8 @@ BOARD_ROOT_EXTRA_SYMLINKS := \
     /vendor/dsp:/dsp \
     /vendor/firmware_mnt:/firmware \
     /vendor/bt_firmware:/bt_firmware
+	
+BOARD_ROOT_EXTRA_FOLDERS := persist
 TARGET_COPY_OUT_VENDOR := vendor
 
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
