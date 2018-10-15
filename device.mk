@@ -24,6 +24,10 @@
  $(call inherit-product, frameworks/native/build/phone-xxhdpi-3072-hwui-memory.mk)
 
  DEVICE_PATH := device/xiaomi/wayne
+ 
+ # Overlays
+ DEVICE_PACKAGE_OVERLAYS += \
+     $(DEVICE_PATH)/overlay
 
 # Permissions
 PRODUCT_COPY_FILES += \
