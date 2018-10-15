@@ -73,6 +73,31 @@ PRODUCT_COPY_FILES += \
  PRODUCT_PACKAGES += \
      android.hardware.light@2.0-service.xiaomi_clover
 
+# Ramdisk     
+ PRODUCT_PACKAGES += \
+    init.class_main.sh \
+    init.goodix.sh \
+    init.msm.usb.configfs.rc \
+    init.qcom.early_boot.sh \
+    init.qcom.class_core.sh \
+    init.qcom.coex.sh \
+    init.qcom.crashdata.sh \
+    init.qcom.efs.sync.sh \
+    init.qcom.post_boot.sh \
+    init.qcom.rc \
+    init.qcom.sensors.sh \
+    init.qcom.sh \
+    init.qcom.sdio.sh \
+    init.qcom.syspart_fixup.sh \
+    init.qcom.usb.rc \
+    init.qcom.usb.sh \
+    init.qcom.wifi.sh \
+    init.qti.fm.sh \
+    init.qti.ims.sh \
+    init.target.rc \
+    qca6234-service.sh \
+    ueventd.qcom.rc \
+
 # Screen density
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
