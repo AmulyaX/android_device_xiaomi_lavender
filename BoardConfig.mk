@@ -21,6 +21,9 @@ DEVICE_PATH := device/xiaomi/wayne
 # Platform
 BOARD_VENDOR_PLATFORM := xiaomi-sdm660
 
+# Props
+ TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
+
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/xiaomi/wayne
 TARGET_KERNEL_CONFIG := wayne-perf_defconfig
