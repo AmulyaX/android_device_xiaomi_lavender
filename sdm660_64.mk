@@ -255,20 +255,6 @@ PRODUCT_PACKAGES += \
 #       $(QCPATH)/qrdplus/globalization/multi-language/res-overlay \
 #      $(PRODUCT_PACKAGE_OVERLAYS)
 
-# Enable logdumpd service only for non-perf bootimage
-ifeq ($(findstring perf,$(KERNEL_DEFCONFIG)),)
-    ifeq ($(TARGET_BUILD_VARIANT),user)
-        PRODUCT_DEFAULT_PROPERTY_OVERRIDES+= \
-            ro.logdumpd.enabled=0
-    else
-        PRODUCT_DEFAULT_PROPERTY_OVERRIDES+= \
-            ro.logdumpd.enabled=1
-    endif
-else
-    PRODUCT_DEFAULT_PROPERTY_OVERRIDES+= \
-        ro.logdumpd.enabled=0
-endif
-
 #for wlan
 PRODUCT_PACKAGES += \
         wificond \
