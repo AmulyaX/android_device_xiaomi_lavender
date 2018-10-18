@@ -63,7 +63,12 @@ PRODUCT_COPY_FILES += \
 
 # IRSC
  PRODUCT_COPY_FILES += \
-     $(DEVICE_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
+    $(DEVICE_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
+     
+# Sensors
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/sensors/sensor_def_qcomdev.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/sensor_def_qcomdev.conf
+
      
 # Keylayout
 PRODUCT_COPY_FILES += \
