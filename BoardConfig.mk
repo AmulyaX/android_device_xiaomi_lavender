@@ -24,6 +24,9 @@ BOARD_VENDOR_PLATFORM := xiaomi-sdm660
 # Props
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
+# Manifest 
+DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
+
 # Vendor init
 TARGET_INIT_VENDOR_LIB := libinit_wayne
 TARGET_RECOVERY_DEVICE_MODULES := libinit_wayne
