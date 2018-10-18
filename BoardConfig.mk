@@ -29,6 +29,7 @@ DEVICE_PATH := device/xiaomi/wayne
 BOARD_VENDOR_PLATFORM := xiaomi-sdm660
 
 # Props
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
 # DT2W
