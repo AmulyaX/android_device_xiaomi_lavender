@@ -21,10 +21,6 @@
 # definition file).
 #
 
-LOCAL_PATH := $(call my-dir)
-
-ifeq ($(TARGET_DEVICE),wayne)
-include $(call all-makefiles-under,$(LOCAL_PATH))
-
-include $(CLEAR_VARS)
-endif
+# inherit MI 6X CarbonRom device config
+PRODUCT_MAKEFILES := \
+    $(LOCAL_DIR)/carbon_wayne.mk
