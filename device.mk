@@ -130,7 +130,7 @@ TARGET_SCREEN_HEIGHT := 2160
 TARGET_SCREEN_WIDTH := 1080
 
 # Include Vendor files
-$(call inherit-product, vendor/xiaomi/sdm660/wayne/wayne-vendor.mk)
+$(call inherit-product, vendor/xiaomi/wayne/wayne-vendor.mk)
 
 # Set those variables here to overwrite the inherited values.
  PRODUCT_NAME := aosp_wayne
