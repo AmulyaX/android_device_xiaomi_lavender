@@ -252,3 +252,6 @@ persist.sys.ssr.restart_level=ALL_ENABLE
 
 #iwaln vowifi corresponding
 persist.data.iwlan.enable=true
+
+#LCD
+ro.sf.lcd_density=480
