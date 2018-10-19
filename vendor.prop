@@ -69,4 +69,6 @@ persist.miui.density_v2=440
 sys.haptic.down.weak=9,11
 sys.haptic.down.normal=5,15
 sys.haptic.down.strong=0,20
+persist.radio.data_con_rprt=1
+persist.sys.ssr.restart_level=ALL_ENABLE
 
