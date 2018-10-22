@@ -333,3 +333,6 @@ PRODUCT_PACKAGES += vndk_package
 TARGET_MOUNT_POINTS_SYMLINKS := false
 
 $(call inherit-product, build/make/target/product/product_launched_with_p.mk)
+
+# Enable STA + SAP Concurrency.
+WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
