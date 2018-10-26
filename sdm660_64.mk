@@ -63,10 +63,6 @@ PRODUCT_COPY_FILES += \
     device/qcom/sdm660_64/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
     device/qcom/sdm660_64/seccomp/mediaextractor-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy
 
-PRODUCT_COPY_FILES += device/qcom/sdm660_64/whitelistedapps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/whitelistedapps.xml \
-                      device/qcom/sdm660_64/gamedwhitelist.xml:$(TARGET_COPY_OUT_VENDOR)/etc/gamedwhitelist.xml \
-                      device/qcom/sdm660_64/appboosts.xml:$(TARGET_COPY_OUT_VENDOR)/etc/appboosts.xml
-
 
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.video.disable.ubwc=1
