@@ -63,10 +63,6 @@ PRODUCT_COPY_FILES += \
     device/qcom/sdm660_64/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
     device/qcom/sdm660_64/seccomp/mediaextractor-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy
 
-PRODUCT_COPY_FILES += device/qcom/sdm660_64/whitelistedapps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/whitelistedapps.xml \
-                      device/qcom/sdm660_64/gamedwhitelist.xml:$(TARGET_COPY_OUT_VENDOR)/etc/gamedwhitelist.xml \
-                      device/qcom/sdm660_64/appboosts.xml:$(TARGET_COPY_OUT_VENDOR)/etc/appboosts.xml
-
 
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.video.disable.ubwc=1
@@ -124,8 +120,6 @@ PRODUCT_PACKAGES += telephony-ext
 
 ifneq ($(strip $(QCPATH)),)
 PRODUCT_BOOT_JARS += WfdCommon
-#Android oem shutdown hook
-PRODUCT_BOOT_JARS += oem-services
 endif
 
 # system prop for Bluetooth SOC type
@@ -256,20 +250,6 @@ PRODUCT_PACKAGES += \
 #PRODUCT_PACKAGE_OVERLAYS := $(QCPATH)/qrdplus/Extension/res \
 #       $(QCPATH)/qrdplus/globalization/multi-language/res-overlay \
 #      $(PRODUCT_PACKAGE_OVERLAYS)
-
-# Enable logdumpd service only for non-perf bootimage
-ifeq ($(findstring perf,$(KERNEL_DEFCONFIG)),)
-    ifeq ($(TARGET_BUILD_VARIANT),user)
-        PRODUCT_DEFAULT_PROPERTY_OVERRIDES+= \
-            ro.logdumpd.enabled=0
-    else
-        PRODUCT_DEFAULT_PROPERTY_OVERRIDES+= \
-            ro.logdumpd.enabled=1
-    endif
-else
-    PRODUCT_DEFAULT_PROPERTY_OVERRIDES+= \
-        ro.logdumpd.enabled=0
-endif
 
 #for wlan
 PRODUCT_PACKAGES += \
