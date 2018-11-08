@@ -43,7 +43,7 @@ TARGET_INIT_VENDOR_LIB := libinit_wayne
 TARGET_RECOVERY_DEVICE_MODULES := libinit_wayne
 
 # Kernel
-TARGET_KERNEL_SOURCE := kernel/xiaomi/wayne
+TARGET_KERNEL_SOURCE := kernel/xiaomi/clover
 TARGET_KERNEL_CONFIG := wayne-perf_defconfig
 #TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz-dtb
 
