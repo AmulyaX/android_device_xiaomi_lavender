@@ -34,9 +34,6 @@ $(call inherit-product, vendor/carbon/config/common.mk)
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.carbon.maintainer="Rcstar6696"
 
-# Device tree path    
-DEVICE_PATH := device/xiaomi/sdm660/wayne
-
 TARGET_VENDOR_PRODUCT_NAME := wayne
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
