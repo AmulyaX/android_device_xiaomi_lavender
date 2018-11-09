@@ -245,3 +245,6 @@ sys.shenchao_nt36672a_length=38
 
 #thermal configs path
 sys.thermal.data.path=/data/vendor/thermal/
+
+#QCRIL radio power saving 
+persist.radio.add_power_save=1
