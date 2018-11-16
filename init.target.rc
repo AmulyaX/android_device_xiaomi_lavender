@@ -28,9 +28,6 @@
 #
 
 on early-init
-    mkdir /firmware 0771 system system
-    mkdir /bt_firmware 0771 system system
-    mkdir /dsp 0771 media media
 
 on init
     write /dev/stune/foreground/schedtune.sched_boost_no_override 1
@@ -426,7 +423,7 @@ on charger
     start qcom-post-boot
     start vendor.hvdcp_opti
     setprop sys.usb.configfs 1
-    start power_off_alarm
+    start vendor.power_off_alarm
 
 #
 #service nqs /system/bin/nqs
