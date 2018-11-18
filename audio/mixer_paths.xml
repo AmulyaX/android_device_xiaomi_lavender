@@ -460,9 +460,7 @@
     </path>
 
     <path name="echo-reference speaker">
-        <ctl name="EC Reference Channels" value="One"/> 
-	<ctl name="EC Reference Bit Format" value="S16_LE"/> 
-	<ctl name="EC Reference SampleRate" value="48000"/> 
+        <ctl name="AUDIO_REF_EC_UL1 MUX" value="I2S_RX" />
     </path>
 
     <path name="deep-buffer-playback">
@@ -1854,7 +1852,7 @@
     <path name="handset">
         <ctl name="RX1 MIX1 INP1" value="RX1" />
         <ctl name="RDAC2 MUX" value="RX1" />
-        <ctl name="RX1 Digital Volume" value="92" />
+        <ctl name="RX1 Digital Volume" value="84" />
         <ctl name="EAR PA Gain" value="POS_6_DB" />
         <ctl name="EAR_S" value="Switch" />
     </path>
@@ -2169,12 +2167,6 @@
 
     <path name="voice-speaker-dmic-ef">
         <path name="speaker-dmic-endfire" />
-    </path>
-
-    <path name="voice-speaker-dmic-ef-echo">
-        <path name="speaker-dmic-endfire" />
-	<ctl name="AUDIO_REF_EC_UL1 MUX" value="I2S_RX" /> 
-	<ctl name="MultiMedia1 Mixer INT3_MI2S_TX" value="1" /> 
     </path>
 
     <path name="voice-rec-dmic-ef">

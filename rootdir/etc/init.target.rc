@@ -40,8 +40,6 @@ on init
     write /dev/stune/system-background/schedtune.colocate 0
     write /dev/stune/foreground/schedtune.colocate 0
     write /dev/stune/top-app/schedtune.colocate 1
-    chown media media /dev/dbmdx-1
-    chmod 0770 /dev/dbmdx-1
 
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
@@ -56,15 +54,12 @@ on fs
     mkdir /persist/data 0700 system system
     mkdir /persist/bms 0700 root system
     restorecon_recursive /persist
-    mkdir /persist/wlan_bt 0777 root system
-    #add by Quanyu.Lee for MI-feature
-    #only needed on Factory version,DO NOT push to MIUI!
-    chmod 0644 /persist/wlan_bt/bt.mac
-    chmod 0644 /persist/wlan_bt/wlan.mac
-    chown system system /persist/wlan_bt/bt.mac
-    chown system system /persist/wlan_bt/wlan.mac
+
+    restorecon_recursive /persistbak
 
     write /sys/kernel/boot_adsp/boot 1
+    chown system system /dev/goodix_fp
+    #chmod 0644 /dev/goodix_fp
 
     chmod 0664 /sys/class/thermal/thermal_message/sconfig
     chown system system /sys/class/thermal/thermal_message/sconfig
@@ -88,6 +83,9 @@ on post-fs-data
     mkdir /data/misc/tloc 0700 system drmrpc
     mkdir /data/thermal 0771 system system
     mkdir /data/thermal/config 0771 system system
+    mkdir /data/preloads 0775 system system
+    mkdir /data/preloads/media 0775 system system
+    mkdir /data/preloads/demo 0755 system system
     start pa-cal-load
 
 on boot
@@ -98,7 +96,6 @@ on boot
     write /dev/cpuset/foreground/boost/cpus 0-7
     write /dev/cpuset/background/cpus 0-7
     write /dev/cpuset/system-background/cpus 0-7
-    write /dev/cpuset/restricted/cpus 0-7
     ####Regionalization config and prop files####
     chmod 0644 /persist/speccfg/spec
     chmod 0644 /persist/speccfg/devicetype
@@ -116,13 +113,13 @@ on boot
     chown system system /persist/speccfg/vendor_persist.prop
     chown system system /persist/speccfg/submask
     chown system system /persist/speccfg/partition
-#Load WLAN driver
-   insmod -f /vendor/lib/modules/qca_cld3/qca_cld3_wlan.ko
-   chown wifi wifi /sys/module/wlan/parameters/fwpath
-   setprop wlan.driver.status "ok"
 
-    chmod 0660 /proc/nvt_wake_gesture
-    chown system system /proc/nvt_wake_gesture
+#Load WLAN driver
+   insmod /vendor/lib/modules/qca_cld3/qca_cld3_wlan.ko
+   setprop wlan.driver.status "ok"
+   
+# Wifi firmware reload path
+     chown wifi wifi /sys/module/wlan/parameters/fwpath
 
 #Peripheral manager
 service per_mgr /system/vendor/bin/pm-service
@@ -142,6 +139,12 @@ on property:init.svc.per_mgr=running
 
 on property:sys.shutdown.requested=*
     stop per_proxy
+
+on property:sys.thermal.isinvideo=1
+    write /sys/class/thermal/thermal_message/sconfig 12
+
+on property:sys.thermal.isinvideo=0
+    write /sys/class/thermal/thermal_message/sconfig 0
 
 #start camera server as daemon
 #service qcamerasvr /system/bin/mm-qcamera-daemon
@@ -210,6 +213,11 @@ service time_daemon /system/vendor/bin/time_daemon
    class late_start
    user root
    group root
+
+service adsprpcd_root /system/bin/adsprpcd
+   class main
+   user media
+   group media
 
 service adsprpcd /system/vendor/bin/adsprpcd audiopd
    class main
@@ -500,7 +508,7 @@ on property:sys.pa-tfa-cal=0
 
 on property:sys.pa-tfa-cal=1
     start smart-pa-tfa-cal
-
+    
 # audio loopback test begin    tsx 08/26
 service loopback_spk1 /system/vendor/bin/loopback.sh 1 1
     user root
@@ -667,8 +675,16 @@ on property:persist.sys.display_gamma=1
 on property:persist.sys.display_gamma=2
     write /sys/class/graphics/fb0/msm_fb_gamma 2
 
-on property:sys.antgpio=0
-    write /sys/class/ant_class/ant_state 0
+#service adswitch /system/vendor/bin/adswitch
+service adswitch /vendor/bin/adswitch
+    user root
+    group root
+    disabled
+    oneshot
 
-on property:sys.antgpio=1
-    write /sys/class/ant_class/ant_state 1
+on property:sys.ad.enable=on
+    start adswitch
+
+on property:sys.ad.enable=off
+    start adswitch
+

@@ -28,6 +28,9 @@
 import /vendor/etc/init/hw/init.qcom.usb.rc
 import /vendor/etc/init/hw/init.msm.usb.configfs.rc
 import /vendor/etc/init/hw/init.target.rc
+import /vendor/etc/init/hw/init.qcom.factory.rc
+import /vendor/etc/init/hw/init.qcom.test.rc
+import /vendor/etc/init/hw/init.factory.mi.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
@@ -38,6 +41,7 @@ on early-init
 on init
     # Set permissions for persist partition
     mkdir /persist 0771 root system
+    mkdir /persistbak 0771 root system
 
     # Support legacy paths
     symlink /sdcard /mnt/sdcard
@@ -52,7 +56,6 @@ on init
 
 on post-fs
     chmod 0755 /sys/kernel/debug/tracing
-    insmod /system/lib/modules/exfat.ko
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
@@ -128,6 +131,8 @@ on boot
 
     #enable camera read sensors data
     setprop persist.camera.gyro.disable 0
+    #disable preview EIS
+    setprop vidhance.preview.enabled 0
 
     #Remove SUID bit for iproute2 ip tool
     chmod 0755 /system/bin/ip
@@ -162,6 +167,9 @@ on boot
     # connections on high-throughput links get dropped when
     # an ack packet comes out of order
     write /proc/sys/net/netfilter/nf_conntrack_tcp_be_liberal 1
+
+    #Make MTU adjusting for sometimes cannot access to internet
+    write /proc/sys/net/ipv4/tcp_mtu_probing 1
 
     # Set the console loglevel to < KERN_INFO
     # Set the default message loglevel to KERN_INFO
@@ -267,12 +275,12 @@ on post-fs-data
     mkdir /data/vendor/wifi/sockets 0770 wifi wifi
     mkdir /data/vendor/wifi/hostapd 0770 wifi wifi
     mkdir /data/vendor/wifi/hostapd/ctrl 0770 wifi wifi
-    mkdir /data/vendor/wifi/wpa 0770 wifi wifi
-    mkdir /data/vendor/wifi/wpa/sockets 0770 wifi wifi
     mkdir /data/vendor/wifi/wpa_supplicant 0770 wifi wifi
     mkdir /data/vendor/wifi/wigig_hostapd 0770 wifi wifi
     mkdir /data/misc/wifi 0770 wifi wifi
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
+    mkdir /data/vendor/wifi/wpa 0770 wifi wifi
+    mkdir /data/vendor/wifi/wpa/sockets 0770 wifi wifi
     mkdir /data/misc/wifi/wpa_supplicant 0770 wifi wifi
     mkdir /data/misc/dhcp 0777 dhcp dhcp
     chown dhcp dhcp /data/misc/dhcp
@@ -300,6 +308,7 @@ on post-fs-data
     # Create the directories used by LctDiagSendData
     mkdir /data/lct_diag 0771 system system
     chown system system /data/lct_diag
+	rm /data/lct_diag/client_*
 
     mkdir /data/dpm/nsrm 0771 system system
     chown system system /data/dpm/nsrm
@@ -321,6 +330,8 @@ on post-fs-data
     # We chown/chmod /persist again so because mount is run as root + defaults
     chown root system /persist
     chmod 0771 /persist
+    chown root system /persistbak
+    chmod 0771 /persistbak
     chown system system /persist/WCNSS_qcom_wlan_nv.bin
     chmod 0664 /sys/devices/platform/msm_sdcc.1/polling
     chmod 0664 /sys/devices/platform/msm_sdcc.2/polling
@@ -365,7 +376,7 @@ on post-fs-data
     setprop vold.post_fs_data_done 1
 
     #Create a folder for SRS to be able to create a usercfg file
-    mkdir /data/data/media 0770 media media
+    #mkdir /data/data/media 0770 media media
 
     #Create FM dir for patchdownloader
     mkdir /data/misc/fm 0770 system system
@@ -488,8 +499,6 @@ on property:sys.boot_completed=1
     restorecon /sys/tp_selftest/syn_selftest_result
     chown system system /sys/tp_selftest/syn_selftest_result
     chmod 0777 /sys/tp_selftest/syn_selftest_result
-    chown system system /sys/class/ant_class/ant_state
-    chmod 0644 /sys/class/ant_class/ant_state
 
 # corefile limit
 on property:persist.debug.trace=1
@@ -553,8 +562,8 @@ service qcom-c_main-sh /vendor/bin/init.class_main.sh
 
 on property:vold.decrypt=trigger_restart_framework
     start qcom-c_main-sh
-    start config_bt_addr
     start wcnss-service
+#   start cnss_diag
 
 on property:persist.env.fastdorm.enabled=true
     setprop persist.radio.data_no_toggle 1
@@ -712,13 +721,13 @@ service amp_unload /system/vendor/bin/amploader -u
     oneshot
 
 service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
-    -O/data/vendor/wifi/wpa/sockets -puse_p2p_group_interface=1 \
+	-O/data/vendor/wifi/wpa/sockets -puse_p2p_group_interface=1 \
     -g@android:wpa_wlan0
 #   we will start as root and wpa_supplicant will switch to user wifi
 #   after setting up the capabilities required for WEXT
 #   user wifi
 #   group wifi inet keystore
-    interface android.hardware.wifi.supplicant@1.0::ISupplicant default
+	interface android.hardware.wifi.supplicant@1.0::ISupplicant default
     interface android.hardware.wifi.supplicant@1.1::ISupplicant default
     class main
     socket wpa_wlan0 dgram 660 wifi wifi
@@ -847,6 +856,18 @@ on property:wifi.ftmd.load=true
 on property:wifi.ftmd.load=false
     stop openwifi
 
+#Modify a way to collect wlan logs and default close the logs in consumer.
+service cnss_diag /system/vendor/bin/cnss_diag -q -f
+    class main
+    user system
+    group system wifi inet net_admin sdcard_rw media_rw diag
+    disabled
+    oneshot
+
+on property:sys.cnss_diag.enable=1
+    start cnss_diag
+on property:persist.service.cnss_diag.enable=1
+    start cnss_diag
 
 service cnss-daemon /system/vendor/bin/cnss-daemon -n -l
     class late_start
@@ -1025,10 +1046,10 @@ service profiler_daemon /system/bin/profiler_daemon
     group root
     disabled
 
-service charger /sbin/chargeonlymode
+service charger /charger
     class charger
     group system graphics
-    seclabel u:r:charger:s0
+    seclabel u:r:healthd:s0
 
 service ssr_diag /system/vendor/bin/ssr_diag
     class late_start
@@ -1062,7 +1083,7 @@ on property:sys.qbcharger.enable=true
 on property:sys.qbcharger.enable=false
     stop qbcharger
 
-service diag_mdlog_start /system/vendor/bin/diag_mdlog
+service diag_mdlog_start /system/vendor/bin/diag_mdlog -n 40
     class late_start
     user shell
     group system diag oem_2901 sdcard_rw sdcard_r media_rw
@@ -1272,7 +1293,14 @@ on property:sys.thermal.isincall=1
 
 on property:sys.thermal.isincall=0
     write /sys/class/power_supply/battery/device/thermalcall 0
-    
+
+#lct add video status
+on property:sys.thermal.isinvideo=1
+    write /sys/class/power_supply/battery/device/thermalvideo 1
+
+on property:sys.thermal.isinvideo=0
+    write /sys/class/power_supply/battery/device/thermalvideo 0
+
 #Add command for PA test begin
 service LctDiagSendData /vendor/bin/LctDiagSendData
     class core
@@ -1292,8 +1320,8 @@ service power_off_alarm /vendor/bin/power_off_alarm
     disabled
     oneshot
 
-service config_bt_addr /vendor/bin/btnvtool -O
-    class core
-    user bluetooth
-    group bluetooth radio
+service bugreport /system/bin/dumpstate -d -p -B -z -o /data/user_de/0/com.android.shell/files/bugreports/bugreport
+    class main
+    disabled
     oneshot
+    keycodes 114 115 116

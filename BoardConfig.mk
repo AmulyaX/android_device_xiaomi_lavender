@@ -23,7 +23,16 @@
 
 include device/xiaomi/sdm660-common/PlatformConfig.mk
 
-DEVICE_PATH := device/xiaomi/wayne
+DEVICE_PATH := device/xiaomi/jasmine
+
+# A/B
+AB_OTA_UPDATER := true
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
+BOARD_USES_RECOVERY_AS_BOOT := true
+TARGET_NO_RECOVERY := true
+
+# Root Folders
+BOARD_ROOT_EXTRA_FOLDERS := bt_firmware dsp firmware persist
 
 # Platform
 BOARD_VENDOR_PLATFORM := xiaomi-sdm660
@@ -39,11 +48,11 @@ TARGET_TAP_TO_WAKE_NODE := "/proc/nvt_wake_gesture"
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 
 # Vendor init
-TARGET_INIT_VENDOR_LIB := libinit_wayne
-TARGET_RECOVERY_DEVICE_MODULES := libinit_wayne
+TARGET_INIT_VENDOR_LIB := libinit_jasmine
+TARGET_RECOVERY_DEVICE_MODULES := libinit_jasmine
 
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/xiaomi/sdm660
-TARGET_KERNEL_CONFIG := wayne-perf_defconfig
+TARGET_KERNEL_CONFIG := jasmine-perf_defconfig
 #TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz-dtb
 

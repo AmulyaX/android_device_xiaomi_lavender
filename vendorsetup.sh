@@ -21,6 +21,6 @@
 # definition file).
 #
 
- add_lunch_combo aosp_wayne-eng
- add_lunch_combo aosp_wayne-userdebug
- add_lunch_combo aosp_wayne-user
+ add_lunch_combo aosp_jasmine-eng
+ add_lunch_combo aosp_jasmine-userdebug
+ add_lunch_combo aosp_jasmine-user

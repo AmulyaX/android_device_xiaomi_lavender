@@ -1,12 +1,12 @@
 Copyright (C) 2018 CarbonRom
 
-The MI 6X (codenamed _"wayne"_) is a mid-range phone from Xiaomi.
+The MI A2 (codenamed _"jasmine"_) is a mid-range phone from Xiaomi.
 
-Xiaomi MI 6X was announced and released in July 2018.
+Xiaomi MI A2 was announced and released in August 2018.
 
 ## Device specifications
 
-| Device       | Xiaomi MI 6X         |
+| Device       | Xiaomi MI A2         |
 | -----------: | :---------------------------------------------- |
 | SoC          | Qualcomm SDM660 Snapdragon 660                  |
 | CPU          | 8x Qualcomm® Kryo™ 260 up to 2.2GHz             |
@@ -22,4 +22,4 @@ Front Camera   | 20 MP
 
 ## Device picture
 
-![Xiaomi MI 6X](https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/a4842f9afc615164af83c2088a412fc0.jpg "Xiaomi MI 6X")
+![Xiaomi MI 6X](https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/a4842f9afc615164af83c2088a412fc0.jpg "Xiaomi MI A2")

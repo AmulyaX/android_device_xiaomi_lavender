@@ -60,7 +60,7 @@ static void init_finger_print_properties()
     std::string buf;
 
     std::string product = GetProperty("ro.product.name", "");
-    if (product.find("wayne") == std::string::npos)
+    if (product.find("jasmine") == std::string::npos)
         return;
 
     fin.open("/proc/cmdline");
@@ -82,7 +82,7 @@ static void init_setup_model_properties()
     std::string buf;
 
     std::string product = GetProperty("ro.product.name", "");
-    if (product.find("wayne") == std::string::npos)
+    if (product.find("jasmine") == std::string::npos)
         return;
 
     fin.open("/proc/cmdline");
@@ -90,12 +90,7 @@ static void init_setup_model_properties()
         if (buf.find("hwversion") != std::string::npos)
             break;
     fin.close();
-
-    if (buf.find("2.31.0") != std::string::npos) {
-        property_set("ro.product.model", "MI 6X MIKU");
-    } else {
-        property_set("ro.product.model", "MI 6X");
-    }
+        property_set("ro.product.model", "MI A2");
 }
 
 static void init_alarm_boot_properties()

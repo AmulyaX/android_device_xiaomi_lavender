@@ -22,7 +22,7 @@
 #
 
 # Inherit device configuration
-$(call inherit-product, device/xiaomi/wayne/device.mk)
+$(call inherit-product, device/xiaomi/jasmine/device.mk)
 
 # Inherit Carbon GSM telephony parts
 $(call inherit-product, vendor/carbon/config/gsm.mk)
@@ -34,17 +34,17 @@ $(call inherit-product, vendor/carbon/config/common.mk)
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.carbon.maintainer="Rcstar6696"
 
-TARGET_VENDOR_PRODUCT_NAME := wayne
+TARGET_VENDOR_PRODUCT_NAME := jasmine
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="wayne-user 8.1.0 OPM1.171019.011 V9.5.11.0.ODCCNFA release-keys"
+    PRIVATE_BUILD_DESC="jasmine-user 8.1.0 OPM1.171019.011 V9.6.16.0.ODIMIFE release-keys"
 
-BUILD_FINGERPRINT := xiaomi/wayne/wayne:8.1.0/OPM1.171019.011/V9.5.11.0.ODCCNFA:user/release-keys
+BUILD_FINGERPRINT := "xiaomi/jasmine/jasmine_sprout:8.1.0/OPM1.171019.011/V9.6.16.0.ODIMIFE:user/release-keys"
 
 # Device identifier
 PRODUCT_BRAND := Android
 PRODUCT_MANUFACTURER := Xiaomi
-PRODUCT_PLATFORM := SDM660
-PRODUCT_NAME := carbon_wayne
-PRODUCT_DEVICE := wayne
-PRODUCT_MODEL := MI 6X (CarbonROM)
+PRODUCT_PLATFORM := SDM660l
+PRODUCT_NAME := carbon_jasmine
+PRODUCT_DEVICE := jasmine
+PRODUCT_MODEL := MI A2 (CarbonROM)

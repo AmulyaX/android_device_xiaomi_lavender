@@ -15,8 +15,8 @@
 
 cc_binary {
     defaults: ["hidl_defaults"],
-    name: "android.hardware.light@2.0-service.xiaomi_wayne",
-    init_rc: ["android.hardware.light@2.0-service.xiaomi_wayne.rc"],
+    name: "android.hardware.light@2.0-service.xiaomi_jasmine",
+    init_rc: ["android.hardware.light@2.0-service.xiaomi_jasmine.rc"],
     srcs: ["service.cpp", "Light.cpp"],
     shared_libs: [
 	"libhardware",

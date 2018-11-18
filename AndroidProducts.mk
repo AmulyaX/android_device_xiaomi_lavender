@@ -21,6 +21,6 @@
 # definition file).
 #
 
-# inherit MI 6X CarbonRom device config
+# inherit MI A2 CarbonRom device config
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/carbon_wayne.mk
+    $(LOCAL_DIR)/carbon_jasmine.mk

@@ -23,6 +23,53 @@
 
  # Inherit the fusion-common definitions
  $(call inherit-product, device/xiaomi/sdm660-common/platform.mk)
+ 
+# A/B
+AB_OTA_UPDATER := true
+AB_OTA_PARTITIONS += \
+    boot \
+    system \
+    vendor
+
+AB_OTA_POSTINSTALL_CONFIG += \
+    RUN_POSTINSTALL_system=true \
+    POSTINSTALL_PATH_system=system/bin/otapreopt_script \
+    FILESYSTEM_TYPE_system=ext4 \
+    POSTINSTALL_OPTIONAL_system=true
+
+PRODUCT_PACKAGES += \
+    otapreopt_script
+
+# Boot control
+PRODUCT_PACKAGES += \
+    android.hardware.boot@1.0-impl \
+    android.hardware.boot@1.0-service \
+    bootctrl.sdm660 \
+
+PRODUCT_STATIC_BOOT_CONTROL_HAL := \
+    bootctrl.sdm660 \
+    libcutils \
+    libgptutils \
+    libz
+
+# Update engine
+PRODUCT_PACKAGES += \
+    brillo_update_payload \
+    update_engine \
+    update_engine_sideload \
+    update_verifier
+
+PRODUCT_PACKAGES_DEBUG += \
+    update_engine_client
+
+# Verity
+PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc/c0c4000.sdhci/by-name/system
+PRODUCT_VENDOR_VERITY_PARTITION := /dev/block/platform/soc/c0c4000.sdhci/by-name/vendor
+$(call inherit-product, build/target/product/verity.mk)
+
+PRODUCT_PACKAGES_DEBUG += \
+    update_engine_client
+
 
  # setup dalvik vm configs
  #$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
@@ -30,7 +77,7 @@
  # setup HWUI configs
  #$(call inherit-product, frameworks/native/build/phone-xxhdpi-3072-hwui-memory.mk)
 
- DEVICE_PATH := device/xiaomi/wayne
+ DEVICE_PATH := device/xiaomi/jasmine
  
  # Overlays
  DEVICE_PACKAGE_OVERLAYS += \
@@ -66,7 +113,7 @@ PRODUCT_COPY_FILES += \
 
 # Init
  PRODUCT_PACKAGES += \
- 	libinit_wayne
+ 	libinit_jasmine
 
 # IRSC
  PRODUCT_COPY_FILES += \
@@ -84,7 +131,7 @@ PRODUCT_COPY_FILES += \
     
 # Lights
  PRODUCT_PACKAGES += \
-     android.hardware.light@2.0-service.xiaomi_wayne
+     android.hardware.light@2.0-service.xiaomi_jasmine
 
 # Ramdisk     
  PRODUCT_PACKAGES += \
@@ -130,11 +177,11 @@ TARGET_SCREEN_HEIGHT := 2160
 TARGET_SCREEN_WIDTH := 1080
 
 # Include Vendor files
-$(call inherit-product, vendor/xiaomi/wayne/wayne-vendor.mk)
+$(call inherit-product, vendor/xiaomi/jasmine/jasmine-vendor.mk)
 
 # Set those variables here to overwrite the inherited values.
- PRODUCT_NAME := aosp_wayne
- PRODUCT_DEVICE := wayne
- PRODUCT_MODEL := Mi 6X (AOSP)
+ PRODUCT_NAME := aosp_jasmine
+ PRODUCT_DEVICE := jasmine
+ PRODUCT_MODEL := Mi A2 (AOSP)
  PRODUCT_BRAND := Xiaomi
  PRODUCT_MANUFACTURER := Xiaomi
