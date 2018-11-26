@@ -47,6 +47,9 @@ TARGET_TAP_TO_WAKE_NODE := "/proc/nvt_wake_gesture"
 # Manifest 
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 
+# Security patch level
+VENDOR_SECURITY_PATCH := 2018-09-01
+
 # Vendor init
 TARGET_INIT_VENDOR_LIB := libinit_jasmine
 TARGET_RECOVERY_DEVICE_MODULES := libinit_jasmine
