@@ -37,10 +37,6 @@ BOARD_ROOT_EXTRA_FOLDERS := bt_firmware dsp firmware persist
 # Platform
 BOARD_VENDOR_PLATFORM := xiaomi-sdm660
 
-# Props
-TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
-TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
-
 # DT2W
 TARGET_TAP_TO_WAKE_NODE := "/proc/nvt_wake_gesture"
 
