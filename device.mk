@@ -110,10 +110,6 @@ PRODUCT_COPY_FILES += \
 # Init
  PRODUCT_PACKAGES += \
  	libinit_jasmine
-
-# IRSC
- PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
      
 # Sensors
 PRODUCT_COPY_FILES += \
