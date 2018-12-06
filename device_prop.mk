@@ -45,6 +45,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.camera.isp.clock.optmz=0 \
 	persist.camera.isp.turbo=1 \
 	persist.camera.linkpreview=0 \
+	persist.camera.mainswitch.threshold=419 \
 	persist.camera.set.afd=4 \
 	persist.camera.stats.test=0 \
 	persist.imx376_sunny.low.lux=290 \
