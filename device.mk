@@ -128,7 +128,7 @@ PRODUCT_COPY_FILES += \
 # Ramdisk     
  PRODUCT_PACKAGES += \
     init.goodix.sh \
-    init.jasmine.rc
+    init.device.rc
     
 # Consumerir
 PRODUCT_PACKAGES += \
