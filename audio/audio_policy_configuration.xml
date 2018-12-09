@@ -333,7 +333,7 @@
 	<!-- A2dp Audio HAL -->
 	<xi:include href="/vendor/etc/a2dp_audio_policy_configuration.xml"/>
         <!-- Usb Audio HAL -->
-        <xi:include href="/vendoe/etc/usb_audio_policy_configuration.xml"/>
+        <xi:include href="/vendor/etc/usb_audio_policy_configuration.xml"/>
 
     </modules>
     <!-- End of Modules section -->
