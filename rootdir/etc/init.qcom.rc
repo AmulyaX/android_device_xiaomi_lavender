@@ -733,8 +733,8 @@ service vendor.dataadpl /system/vendor/bin/adpl
 service vendor.sensors /vendor/bin/sscrpcd
     class core
     user system
-    group system
-    disabled
+    group root system input
+    writepid /dev/cpuset/system-background/tasks
 
 service vendor.sensors.qti /vendor/bin/sensors.qti
     class core
