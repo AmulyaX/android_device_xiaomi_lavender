@@ -32,7 +32,7 @@ BOARD_USES_RECOVERY_AS_BOOT := true
 TARGET_NO_RECOVERY := true
 
 # Root Folders
-BOARD_ROOT_EXTRA_FOLDERS := bt_firmware dsp firmware persist
+BOARD_ROOT_EXTRA_FOLDERS := persist
 
 # Platform
 BOARD_VENDOR_PLATFORM := xiaomi-sdm660
