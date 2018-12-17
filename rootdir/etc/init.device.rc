@@ -25,6 +25,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+on boot
 # Set permission for double tap to wake support
     chmod 0660 /proc/nvt_wake_gesture
     chown system system /proc/nvt_wake_gesture
