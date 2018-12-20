@@ -23,4 +23,4 @@
 
 # inherit MI A2 CarbonRom device config
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/carbon_jasmine.mk
+    $(LOCAL_DIR)/havoc_jasmine.mk

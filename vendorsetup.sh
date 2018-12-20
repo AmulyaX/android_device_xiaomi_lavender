@@ -21,6 +21,6 @@
 # definition file).
 #
 
- add_lunch_combo aosp_jasmine-eng
- add_lunch_combo aosp_jasmine-userdebug
- add_lunch_combo aosp_jasmine-user
+ add_lunch_combo havoc_jasmine-eng
+ add_lunch_combo havoc_jasmine-userdebug
+ add_lunch_combo havoc_jasmine-user
