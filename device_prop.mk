@@ -66,7 +66,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
-	mm.enable.qcom_parser=262029
+	vendor.mm.enable.qcom_parser=262029
 
 # Paper mode
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -78,7 +78,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
-	persist.data.iwlan.enable=true \
+	persist.vendor.iwlan.enable=true \
 	persist.vendor.radio.data_con_rprt=1
 
 # Vibration
