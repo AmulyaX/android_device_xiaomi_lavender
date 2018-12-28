@@ -29,6 +29,9 @@ $(call inherit-product, vendor/havoc/config/common.mk)
 
 TARGET_VENDOR_PRODUCT_NAME := jasmine
 
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.havoc.maintainer=rcstar6696 
+
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRIVATE_BUILD_DESC="jasmine_sprout-user 9 PKQ1.180904.001 V10.0.2.0.PDIMIFJ release-keys"
 
