@@ -93,10 +93,6 @@ PRODUCT_COPY_FILES += \
 	$(DEVICE_PATH)/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gpio-keys.kl \
 	$(DEVICE_PATH)/keylayout/uinput-fpc.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-fpc.kl
 
-# Lights
- PRODUCT_PACKAGES += \
-	 android.hardware.light@2.0-service.xiaomi_jasmine
-
 # Media
 PRODUCT_COPY_FILES += \
 	$(DEVICE_PATH)/media/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
