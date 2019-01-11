@@ -1,14 +1,32 @@
 [
- {
-   "repository": "android_vendor_xiaomi_sdm660",
-   "target_path": "vendor/xiaomi/sdm660"
- },
- {
-   "repository": "android_device_xiaomi_sdm660-common",
-   "target_path": "device/xiaomi/sdm660-common"
- },
- {
-    "repository": "android_packages_resources_devicesettings",
-    "target_path": "packages/resources/devicesettings"
- }
+  {
+    "remote":      "github",
+    "repository":  "xiaomi-sdm660/android_device_xiaomi_sdm660-common",
+    "target_path": "device/xiaomi/sdm660-common"
+    "branch":      "havoc"
+  },
+  {
+    "remote":      "github",
+    "repository":  "xiaomi-sdm660/android_kernel_xiaomi_sdm660",
+    "target_path": "kernel/xiaomi/sdm660",
+    "branch":      "master"
+  },
+  {
+    "remote":      "github",
+    "repository":  "xiaomi-sdm660/android_vendor_xiaomi_jasmine",
+    "target_path": "vendor/xiaomi/jasmine",
+    "branch":      "master"
+  },
+  {
+    "remote":      "los",
+    "repository":  "android_packages_resources_devicesettings",
+    "target_path": "packages/resources/devicesettings",
+    "branch":      "lineage-16.0"
+  },
+  {
+    "remote":      "github",
+    "repository":  "xiaomi-sdm660/android_vendor_xiaomi_Miuicamera",
+    "target_path": "vendor/xiaomi/MiuiCamera",
+    "branch":      "master"
+  }
 ]
