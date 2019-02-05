@@ -253,6 +253,10 @@ PRODUCT_PACKAGES += \
     libipanat \
     liboffloadhal
 
+# Ion
+PRODUCT_PACKAGES += \
+    libion
+
 # IPv6
 PRODUCT_PACKAGES += \
     ebtables \
