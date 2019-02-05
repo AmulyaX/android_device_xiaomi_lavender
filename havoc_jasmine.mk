@@ -32,11 +32,6 @@ TARGET_VENDOR_PRODUCT_NAME := jasmine
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.havoc.maintainer=rcstar6696
 
-PRODUCT_BUILD_PROP_OVERRIDES += \
-	PRIVATE_BUILD_DESC="taimen-user 9 PQ1A.190105.004 5148680 release-keys"
-
-BUILD_FINGERPRINT := google/taimen/taimen:9/PQ1A.190105.004/5148680:user/release-keys
-
 # Device identifier
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MANUFACTURER := Xiaomi
