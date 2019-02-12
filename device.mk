@@ -25,7 +25,7 @@
 $(call inherit-product, device/xiaomi/sdm660-common/platform.mk)
 
 # Device Path
-DEVICE_PATH := device/xiaomi/jasmine
+DEVICE_PATH := device/xiaomi/jasmine_sprout
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
@@ -86,7 +86,7 @@ $(call inherit-product, $(DEVICE_PATH)/device_prop.mk)
 
 # Init
  PRODUCT_PACKAGES += \
- 	libinit_jasmine
+ 	libinit_jasmine_sprout
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -133,11 +133,11 @@ PRODUCT_VENDOR_VERITY_PARTITION := /dev/block/platform/soc/c0c4000.sdhci/by-name
 $(call inherit-product, build/target/product/verity.mk)
 
 # Vendor files
-$(call inherit-product, vendor/xiaomi/jasmine/jasmine-vendor.mk)
+$(call inherit-product, vendor/xiaomi/jasmine_sprout/jasmine_sprout-vendor.mk)
 
 # AOSP DEVICE
-PRODUCT_NAME := aosp_jasmine
-PRODUCT_DEVICE := jasmine
+PRODUCT_NAME := aosp_jasmine_sprout
+PRODUCT_DEVICE := jasmine_sprout
 PRODUCT_MODEL := Mi A2 (AOSP)
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MANUFACTURER := Xiaomi

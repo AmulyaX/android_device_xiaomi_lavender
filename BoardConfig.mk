@@ -24,7 +24,7 @@
 include device/xiaomi/sdm660-common/PlatformConfig.mk
 
 # Device Path
-DEVICE_PATH := device/xiaomi/jasmine
+DEVICE_PATH := device/xiaomi/jasmine_sprout
 
 # A/B
 AB_OTA_UPDATER := true
@@ -52,8 +52,8 @@ BOARD_ROOT_EXTRA_FOLDERS := persist
 VENDOR_SECURITY_PATCH := 2018-09-01
 
 # Vendor init
-TARGET_INIT_VENDOR_LIB := libinit_jasmine
-TARGET_RECOVERY_DEVICE_MODULES := libinit_jasmine
+TARGET_INIT_VENDOR_LIB := libinit_jasmine_sprout
+TARGET_RECOVERY_DEVICE_MODULES := libinit_jasmine_sprout
 
 # WLAN MAC
 WLAN_MAC_SYMLINK := true

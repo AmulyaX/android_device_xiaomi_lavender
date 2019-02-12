@@ -76,7 +76,7 @@ static void init_finger_print_properties()
     std::string buf;
 
     std::string product = GetProperty("ro.product.name", "");
-    if (product.find("jasmine") == std::string::npos)
+    if (product.find("jasmine_sprout") == std::string::npos)
         return;
 
     fin.open("/proc/cmdline");
@@ -98,7 +98,7 @@ static void init_setup_model_properties()
     std::string buf;
 
     std::string product = GetProperty("ro.product.name", "");
-    if (product.find("jasmine") == std::string::npos)
+    if (product.find("jasmine_sprout") == std::string::npos)
         return;
 
     fin.open("/proc/cmdline");
