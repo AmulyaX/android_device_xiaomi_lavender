@@ -586,5 +586,8 @@
       manually by the user. Off by default, since the expected haptic feedback may not be
       available on some devices. -->
     <bool name="config_enableHapticTextHandle">true</bool>
-	
+
+    <!-- Boolean indicating if current platform supports HFP inband ringing -->
+    <bool name="config_bluetooth_hfp_inband_ringing_support">true</bool>
+
 </resources>
