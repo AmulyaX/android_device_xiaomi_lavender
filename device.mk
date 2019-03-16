@@ -64,6 +64,8 @@ PRODUCT_COPY_FILES += \
 TARGET_SCREEN_HEIGHT := 2160
 TARGET_SCREEN_WIDTH := 1080
 
+PRODUCT_CHARACTERISTICS := nosdcard
+
 # Boot control
 PRODUCT_PACKAGES += \
 	android.hardware.boot@1.0-impl \
