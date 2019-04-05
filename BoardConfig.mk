@@ -23,6 +23,11 @@
 
 include device/xiaomi/sdm660-common/BoardConfigCommon.mk
 
+# AVB
+BOARD_AVB_ENABLE := true
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --set_hashtree_disabled_flag
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 2
+
 # Device Path
 DEVICE_PATH := device/xiaomi/lavender
 
