@@ -116,9 +116,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.vendor.iwlan.enable=true \
 	persist.vendor.radio.data_con_rprt=1
-
-# Vibration
-PRODUCT_PROPERTY_OVERRIDES += \
-	sys.haptic.down.normal=5,15 \
-	sys.haptic.down.strong=0,20 \
-	sys.haptic.down.weak=9,11
