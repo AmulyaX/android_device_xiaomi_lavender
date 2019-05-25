@@ -46,12 +46,6 @@ using android::init::property_set;
 using android::base::ReadFileToString;
 using android::base::Trim;
 
-char const *heapstartsize;
-char const *heapgrowthlimit;
-char const *heapsize;
-char const *heapminfree;
-char const *heapmaxfree;
-
 void property_override(char const prop[], char const value[])
 {
     prop_info *pi;
@@ -148,6 +142,4 @@ void vendor_load_properties()
     init_alarm_boot_properties();
     init_finger_print_properties();
     init_setup_model_properties();
-
-    property_override("vendor.display.lcd_density", "480");
 }
