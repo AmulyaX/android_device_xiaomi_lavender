@@ -100,6 +100,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.radio.multisim.config=dsds
 
+# DPI
+PRODUCT_PROPERTY_OVERRIDES += \
+	vendor.display.lcd_density=480
+
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
 	vendor.mm.enable.qcom_parser=262029
