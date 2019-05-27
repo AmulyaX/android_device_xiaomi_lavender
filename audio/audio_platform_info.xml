@@ -59,7 +59,7 @@
         <usecase name="USECASE_AUDIO_RECORD_AFE_PROXY" type="in" id="7"/>
         <usecase name="USECASE_AUDIO_RECORD_LOW_LATENCY" type="in" id="17" />
         <usecase name="USECASE_AUDIO_PLAYBACK_ULL" type="out" id="17" />
-        <usecase name="USECASE_AUDIO_PLAYBACK_EXT_DISP_SILENCE" type="out" id="27" />
+        <usecase name="USECASE_AUDIO_PLAYBACK_SILENCE" type="out" id="27" />
         <usecase name="USECASE_AUDIO_HFP_SCO" type="in" id="12" />
         <usecase name="USECASE_AUDIO_HFP_SCO_WB" type="in" id="12" />
     </pcm_ids>
@@ -91,7 +91,7 @@
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER_2" acdb_id="34"/>
         <device name="SND_DEVICE_OUT_VOICE_HEADPHONES" acdb_id="52"/>
         <device name="SND_DEVICE_OUT_VOICE_USB_HEADSET" acdb_id="52"/>
-	<device name="SND_DEVICE_OUT_VOICE_USB_HEADPHONES" acdb_id="52"/>
+        <device name="SND_DEVICE_OUT_VOICE_USB_HEADPHONES" acdb_id="52"/>
         <device name="SND_DEVICE_OUT_BT_SCO" acdb_id="66"/>
         <device name="SND_DEVICE_OUT_BT_SCO_WB" acdb_id="578"/>
         <device name="SND_DEVICE_OUT_VOICE_TX" acdb_id="52"/>
@@ -115,7 +115,7 @@
         <device name="SND_DEVICE_IN_CAMCORDER_MIC" acdb_id="4"/>
         <device name="SND_DEVICE_IN_VOICE_DMIC" acdb_id="277"/>
         <device name="SND_DEVICE_IN_VOICE_SPEAKER_DMIC" acdb_id="293"/>
-	<device name="SND_DEVICE_IN_VOICE_SPEAKER_DMIC_ECHO" acdb_id="293"/>
+        <device name="SND_DEVICE_IN_VOICE_SPEAKER_DMIC_ECHO" acdb_id="293"/>
         <device name="SND_DEVICE_IN_VOICE_RX" acdb_id="819"/>
         <device name="SND_DEVICE_IN_VOICE_REC_MIC" acdb_id="10003"/>
         <device name="SND_DEVICE_IN_CAPTURE_FM" acdb_id="0"/>
@@ -123,7 +123,6 @@
         <device name="SND_DEVICE_IN_MAIN_MIC" acdb_id="4"/>
         <device name="SND_DEVICE_IN_TOP_MIC" acdb_id="11"/>
         <device name="SND_DEVICE_IN_FRONT_MIC" acdb_id="11"/>
-        <device name="SND_DEVICE_IN_HANDSET_STEREO_DMIC" acdb_id="2069"/>
         <device name="SND_DEVICE_IN_HANDSET_DMIC_MUSIC" acdb_id="21"/>
         <device name="SND_DEVICE_IN_HANDSET_DMIC_VOICE" acdb_id="533"/>
         <device name="SND_DEVICE_IN_HANDSET_MIC_NS" acdb_id="533"/>
