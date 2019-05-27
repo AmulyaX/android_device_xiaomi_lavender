@@ -7,13 +7,14 @@
 /boot            emmc              /dev/block/bootdevice/by-name/boot       flags=slotselect;backup=1;flashimg=1
 /system          ext4              /dev/block/bootdevice/by-name/system     flags=slotselect;backup=1;flashimg=1
 /system_image    emmc              /dev/block/bootdevice/by-name/system     flags=slotselect;backup=1
+/splash          emmc              /dev/block/bootdevice/by-name/splash     flags=display="Boot Logo";backup=1;flashimg=1
 /vendor          ext4              /dev/block/bootdevice/by-name/vendor     flags=slotselect;display="Vendor";backup=1;flashimg=1
 /vendor_image    emmc              /dev/block/bootdevice/by-name/vendor     flags=slotselect;backup=1
 /data            f2fs              /dev/block/bootdevice/by-name/userdata   flags=encryptable=footer;backup=1;
 /persist         ext4              /dev/block/bootdevice/by-name/persist    flags=display="Persist";backup=1;flashimg=1
 /bt_firmware     vfat              /dev/block/bootdevice/by-name/bluetooth  flags=display="Bluetooth";backup=1;slotselect;flashimg=1
 /misc            emmc              /dev/block/bootdevice/by-name/misc
-/modem		 emmc              /dev/block/bootdevice/by-name/modem      flags=slotselect;backup=1;display="Modem";flashimg=1
+/modem           emmc              /dev/block/bootdevice/by-name/modem      flags=slotselect;backup=1;display="Modem";flashimg=1
 /firmware        vfat              /dev/block/bootdevice/by-name/modem      flags=display="Firmware";slotselect;backup=1;mounttodecrypt;fsflags=context=u:object_r:firmware_file:s0
 /efs1            emmc              /dev/block/bootdevice/by-name/modemst1   flags=backup=1;display=EFS;flashimg=1
 /efs2            emmc              /dev/block/bootdevice/by-name/modemst2   flags=backup=1;subpartitionof=/efs1
