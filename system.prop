@@ -248,9 +248,6 @@ sys.boe_td4320_length=42
 sys.shenchao_nt36672a_offset=-10
 sys.shenchao_nt36672a_length=38
 
-#enable all system restart_level to relative
-persist.vendor.ssr.restart_level=ALL_ENABLE
-
 #thermal configs path
 sys.thermal.data.path=/data/vendor/thermal/
 
