@@ -42,4 +42,7 @@
        <item>"wigig0"</item>
        <item>"softap0"</item>
    </string-array>
+
+   <!-- Enable WPA3 support -->
+   <bool translatable="false" name="config_wifi_wpa3_supported">false</bool>
 </resources>
