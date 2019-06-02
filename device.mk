@@ -136,7 +136,7 @@ PRODUCT_VENDOR_VERITY_PARTITION := /dev/block/platform/soc/c0c4000.sdhci/by-name
 $(call inherit-product, build/target/product/verity.mk)
 
 # Vendor files
-$(call inherit-product, vendor/xiaomi/jasmine_sprout/jasmine_sprout-vendor.mk)
+$(call inherit-product, vendor/xiaomi/wayne/wayne-vendor.mk)
 
 # AOSP DEVICE
 PRODUCT_NAME := aosp_jasmine_sprout
