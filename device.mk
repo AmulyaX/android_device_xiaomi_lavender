@@ -130,6 +130,10 @@ PRODUCT_PACKAGES += \
 	android.hardware.vibrator@1.0-impl \
 	android.hardware.vibrator@1.0-service
 
+# Watermark
+PRODUCT_COPY_FILES += \
+	$(DEVICE_PATH)/media/MIUI_DualCamera_watermark_A2.png:$(TARGET_COPY_OUT_VENDOR)/etc/MIUI_DualCamera_watermark.png
+
 # Verity
 PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc/c0c4000.sdhci/by-name/system
 PRODUCT_VENDOR_VERITY_PARTITION := /dev/block/platform/soc/c0c4000.sdhci/by-name/vendor
