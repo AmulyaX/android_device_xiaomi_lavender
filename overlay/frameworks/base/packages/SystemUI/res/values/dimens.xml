@@ -17,9 +17,6 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Margin on the left side of the carrier text on Keyguard -->
-    <dimen name="keyguard_carrier_text_margin">12dp</dimen>
- 
-    <!-- Margin on the right side of the system icon group on Keyguard. -->
-    <dimen name="system_icons_keyguard_padding_end">12dp</dimen>
+    <dimen name="rounded_corner_content_padding">36px</dimen>
+    <dimen name="system_icons_keyguard_padding_end">16dp</dimen>
 </resources>
