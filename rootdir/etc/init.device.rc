@@ -29,3 +29,7 @@ on boot
 # Set permission for double tap to wake support
     chmod 0660 /proc/nvt_wake_gesture
     chown system system /proc/nvt_wake_gesture
+
+# Camera ID
+    setprop persist.vendor.camera.exif.model "Mi A2"
+    setprop persist.sys.exif.model "Mi A2"

@@ -55,7 +55,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.imx376_ofilm.low.lux=310 \
 	persist.imx376_ofilm.light.lux=280 \
 	persist.sys.exif.make=Xiaomi \
-	persist.sys.exif.model=MI A2 \
 	persist.radio.VT_CAM_INTERFACE=2 \
 	ro.eyecare.brightness.threshold=3 \
 	ro.eyecare.brightness.level=8 \
@@ -93,8 +92,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.vendor.imx376_ofilm.low.lux=290 \
 	persist.vendor.imx376_ofilm.light.lux=275 \
 	persist.vendor.bokeh.switch.lux=290 \
-	persist.vendor.camera.exif.make=Xiaomi \
-	persist.vendor.camera.exif.model=MI A2
+	persist.vendor.camera.exif.make=Xiaomi
 
 # Dual SIM
 PRODUCT_PROPERTY_OVERRIDES += \
