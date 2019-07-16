@@ -60,6 +60,8 @@ vendor.display.disable_skip_validate=1
 persist.vendor.cne.feature=1
 
 #system props for the MM modules
+debug.stagefright.omx_default_rank.sw-audio=1
+debug.stagefright.omx_default_rank=0
 media.stagefright.enable-player=true
 media.stagefright.enable-http=true
 media.stagefright.enable-aac=true
