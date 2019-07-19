@@ -133,3 +133,4 @@ on property:sys.usb.ffs.ready=1 && property:sys.usb.config=mtp,adb
 
 on property:ro.boot.usbcontroller=*
     setprop sys.usb.controller ${ro.boot.usbcontroller}
+
