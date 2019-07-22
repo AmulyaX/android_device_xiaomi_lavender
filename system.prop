@@ -36,6 +36,7 @@ debug.sf.early_gl_app_phase_offset_ns=15000000
 debug.sf.early_phase_offset_ns=1500000
 debug.cpurend.vsync=false
 debug.hwui.use_buffer_age=false
+debug.sf.enable_gl_backpressure=1
 #add for screen fliker
 debug.gralloc.gfx_ubwc_disable=1
 debug.gralloc.enable_fb_ubwc=0
