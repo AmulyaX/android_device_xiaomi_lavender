@@ -95,7 +95,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Enable headset calibration
 PRODUCT_PROPERTY_OVERRIDES += \
-	audio.volume.headset.gain.depcal=true
+	vendor.audio.volume.headset.gain.depcal=true
 
 # Add dynamic feature flags here
 PRODUCT_PROPERTY_OVERRIDES += \
