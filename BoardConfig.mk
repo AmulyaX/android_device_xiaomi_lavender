@@ -62,19 +62,7 @@ endif
 BOARD_BOOTIMG_HEADER_VERSION := 1
 BOARD_MKBOOTIMG_ARGS := --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 
-ifeq ($(ENABLE_AB), true)
-  ifeq ($(ENABLE_VENDOR_IMAGE), true)
-    TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery_AB_split_variant.fstab
-  else
-    TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery_AB_non-split_variant.fstab
-  endif
-else
-  ifeq ($(ENABLE_VENDOR_IMAGE), true)
-    TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery_non-AB_split_variant.fstab
-  else
-    TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery_non-AB_non-split_variant.fstab
-  endif
-endif
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/recovery.fstab
 
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3221225472
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 48318382080

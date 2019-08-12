@@ -182,6 +182,11 @@ PRODUCT_PACKAGES += android.hardware.camera.provider@2.4-service
 PRODUCT_PACKAGES += \
 	android.hardware.usb@1.0-service
 
+# Ramdisk
+PRODUCT_PACKAGES += \
+    init.target.rc \
+    fstab.qcom
+
 # Sensor features
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.accelerometer.xml \
@@ -217,7 +222,7 @@ PRODUCT_COPY_FILES += \
 
 # FBE support
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/init.qti.qseecomd.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qti.qseecomd.sh
+    $(LOCAL_PATH)/rootdir/bin/init.qti.qseecomd.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qti.qseecomd.sh
 # VB xml
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.verified_boot.xml:system/etc/permissions/android.software.verified_boot.xml
