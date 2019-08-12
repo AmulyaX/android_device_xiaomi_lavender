@@ -39,24 +39,12 @@ BOARD_USE_LEGACY_UI := true
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x04000000
 
-ifeq ($(ENABLE_AB), true)
-#A/B related defines
-AB_OTA_UPDATER := true
-# Full A/B partiton update set
-# AB_OTA_PARTITIONS := xbl rpm tz hyp pmic modem abl boot keymaster cmnlib cmnlib64 system bluetooth
-# Subset A/B partitions for Android-only image update
-AB_OTA_PARTITIONS ?= boot system
-BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
-TARGET_NO_RECOVERY := true
-BOARD_USES_RECOVERY_AS_BOOT := true
-else
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x04000000
 BOARD_CACHEIMAGE_PARTITION_SIZE := 268435456
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 # Enable System As Root even for non-A/B from P onwards
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 #TARGET_RECOVERY_UPDATER_LIBS += librecovery_updater_msm
-endif
 
 # Set Header version for bootimage
 BOARD_BOOTIMG_HEADER_VERSION := 1
@@ -92,7 +80,6 @@ BOARD_VENDOR_KERNEL_MODULES := \
 
 TARGET_USES_ION := true
 TARGET_USES_NEW_ION_API :=true
-TARGET_USES_QCOM_DISPLAY_BSP := true
 
 #Gralloc h/w specif flags
 TARGET_USES_HWC2 := true
@@ -117,28 +104,20 @@ BOARD_RAMDISK_OFFSET     := 0x02000000
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
-TARGET_USES_UNCOMPRESSED_KERNEL := false
-
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
 
 TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 MAX_VIRTUAL_DISPLAY_DIMENSION := 4096
 
-BOARD_USES_GENERIC_AUDIO := true
 USE_CAMERA_STUB := false
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 TARGET_NO_RPC := true
 
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
-TARGET_INIT_VENDOR_LIB := libinit_msm
 
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 TARGET_KERNEL_APPEND_DTB := true
-TARGET_COMPILE_WITH_MSM_KERNEL := true
-
-#Enable PD locater/notifier
-TARGET_PD_SERVICE_ENABLED := true
 
 #Enable HW based full disk encryption
 TARGET_HW_DISK_ENCRYPTION := true
@@ -155,29 +134,12 @@ ifeq ($(HOST_OS),linux)
     endif
 endif
 
-#Enable peripheral manager
-TARGET_PER_MGR_ENABLED := true
-
-#Enable SSC Feature
-TARGET_USES_SSC := true
-
 # Enable sensor multi HAL
 USE_SENSOR_MULTI_HAL := true
 
 #Enable CPUSets
 ENABLE_CPUSETS := true
 ENABLE_SCHEDBOOST := true
-
-#Enabling IMS Feature
-TARGET_USES_IMS := true
-
-#Add NON-HLOS files for ota upgrade
-ADD_RADIO_FILES := true
-TARGET_RECOVERY_UI_LIB := librecovery_ui_msm
-
-ifneq ($(AB_OTA_UPDATER),true)
-    TARGET_RECOVERY_UPDATER_LIBS += librecovery_updater_msm
-endif
 
 #Enable DRM plugins 64 bit compilation
 TARGET_ENABLE_MEDIADRM_64 := true
