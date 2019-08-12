@@ -1,7 +1,10 @@
-# config.mk
 #
-# Product-specific compile-time definitions.
+# Copyright (C) 2018-2019 The LineageOS Project
 #
+# SPDX-License-Identifier: Apache-2.0
+#
+
+DEVICE_PATH := device/xiaomi/lavender
 
 TARGET_BOARD_PLATFORM := sdm660
 TARGET_BOARD_SUFFIX := _64
@@ -61,15 +64,15 @@ BOARD_MKBOOTIMG_ARGS := --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 
 ifeq ($(ENABLE_AB), true)
   ifeq ($(ENABLE_VENDOR_IMAGE), true)
-    TARGET_RECOVERY_FSTAB := device/qcom/sdm660_64/recovery_AB_split_variant.fstab
+    TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery_AB_split_variant.fstab
   else
-    TARGET_RECOVERY_FSTAB := device/qcom/sdm660_64/recovery_AB_non-split_variant.fstab
+    TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery_AB_non-split_variant.fstab
   endif
 else
   ifeq ($(ENABLE_VENDOR_IMAGE), true)
-    TARGET_RECOVERY_FSTAB := device/qcom/sdm660_64/recovery_non-AB_split_variant.fstab
+    TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery_non-AB_split_variant.fstab
   else
-    TARGET_RECOVERY_FSTAB := device/qcom/sdm660_64/recovery_non-AB_non-split_variant.fstab
+    TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery_non-AB_non-split_variant.fstab
   endif
 endif
 
@@ -116,8 +119,8 @@ endif
 BOARD_KERNEL_CMDLINE += androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 sched_enable_hmp=1 sched_enable_power_aware=1 service_locator.enable=1 swiotlb=1 firmware_class.path=/vendor/firmware_mnt/image loop.max_part=7
 endif
 
-BOARD_EGL_CFG := device/qcom/sdm660_64/egl.cfg
-BOARD_SECCOMP_POLICY := device/qcom/sdm660_32/seccomp
+BOARD_EGL_CFG := $(DEVICE_PATH)/egl.cfg
+BOARD_SECCOMP_POLICY := $(DEVICE_PATH)/seccomp
 
 BOARD_KERNEL_BASE        := 0x00000000
 BOARD_KERNEL_PAGESIZE    := 4096
