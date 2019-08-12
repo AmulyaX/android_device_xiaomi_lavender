@@ -121,6 +121,9 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/recovery.fstab
 # RIL
 TARGET_RIL_VARIANT := caf
 
+# Sensors
+USE_SENSOR_MULTI_HAL := true
+
 BOARD_VENDOR_KERNEL_MODULES := \
     $(KERNEL_MODULES_OUT)/wil6210.ko \
     $(KERNEL_MODULES_OUT)/msm_11ad_proxy.ko \
@@ -162,9 +165,6 @@ ifeq ($(HOST_OS),linux)
       endif
     endif
 endif
-
-# Enable sensor multi HAL
-USE_SENSOR_MULTI_HAL := true
 
 #Enable DRM plugins 64 bit compilation
 TARGET_ENABLE_MEDIADRM_64 := true
