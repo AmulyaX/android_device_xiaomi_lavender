@@ -40,7 +40,7 @@ TARGET_KERNEL_SOURCE := kernel/xiaomi/sdm660
 TARGET_KERNEL_CONFIG := jasmine-perf_defconfig
 
 # Manifest
-DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
 # Platform
 BOARD_VENDOR_PLATFORM := xiaomi-sdm660
