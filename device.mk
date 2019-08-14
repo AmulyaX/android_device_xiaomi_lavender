@@ -90,7 +90,6 @@ PRODUCT_COPY_FILES += \
 
 # Ramdisk
  PRODUCT_PACKAGES += \
-	init.goodix.sh \
 	init.device.rc
 
 # Screen density
