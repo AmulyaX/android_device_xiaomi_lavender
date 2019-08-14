@@ -22,7 +22,7 @@
 #
 
 # Inherit the fusion-common definitions
-$(call inherit-product, device/xiaomi/sdm660-common/platform.mk)
+$(call inherit-product, device/xiaomi/sdm660-common/sdm660.mk)
 
 # Device Path
 DEVICE_PATH := device/xiaomi/jasmine_sprout

@@ -21,7 +21,7 @@
 # definition file).
 #
 
-include device/xiaomi/sdm660-common/PlatformConfig.mk
+include device/xiaomi/sdm660-common/BoardConfigCommon.mk
 
 # Device Path
 DEVICE_PATH := device/xiaomi/jasmine_sprout
