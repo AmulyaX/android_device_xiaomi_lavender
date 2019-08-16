@@ -12,6 +12,9 @@
 /sys/devices/soc/soc:fpc1020(/.*)?                  u:object_r:sysfs_fingerprint:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.xiaomi_lavender u:object_r:hal_fingerprint_default_exec:s0
 
+# Hall Switch
+/sys/module/hall/parameters(/.*)?               u:object_r:hall_dev:s0
+
 # Input files
 /vendor/usr/idc(/.*)?                               u:object_r:idc_file:s0
 /vendor/usr/keylayout(/.*)?                         u:object_r:keylayout_file:s0
