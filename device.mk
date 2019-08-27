@@ -43,6 +43,10 @@ PRODUCT_COPY_FILES += \
     $(TOPDIR)frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:/$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
     $(TOPDIR)frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:/$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml
 
+# Bluetooth
+PRODUCT_PACKAGES += \
+    libbthost_if
+
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
@@ -106,10 +110,6 @@ PRODUCT_BOOT_JARS += tcmiface
 PRODUCT_BOOT_JARS += telephony-ext
 
 PRODUCT_PACKAGES += telephony-ext
-
-# system prop for Bluetooth SOC type
-PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.qcom.bluetooth.soc=cherokee
 
 DEVICE_MANIFEST_FILE := $(LOCAL_PATH)/manifest.xml
 DEVICE_MATRIX_FILE   := $(LOCAL_PATH)/compatibility_matrix.xml
