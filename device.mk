@@ -293,12 +293,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.stepcounter.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.stepcounter.xml \
     frameworks/native/data/etc/android.hardware.sensor.stepdetector.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.stepdetector.xml
 
-#Facing, CMC and Gesture
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.sensors.facing=false \
-    ro.vendor.sensors.cmc=false \
-    ro.vendor.sdk.sensors.gestures=false
-
 # RIL
 PRODUCT_PACKAGES += \
     android.hardware.radio@1.2 \
@@ -307,6 +301,16 @@ PRODUCT_PACKAGES += \
     librmnetctl \
     libxml2 \
     libprotobuf-cpp-full
+
+# Sensors
+PRODUCT_PACKAGES += \
+    android.hardware.sensors@1.0-impl \
+    android.hardware.sensors@1.0-service
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.sensors.facing=false \
+    ro.vendor.sensors.cmc=false \
+    ro.vendor.sdk.sensors.gestures=false
 
 # Wifi
 PRODUCT_COPY_FILES += \
