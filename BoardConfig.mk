@@ -180,17 +180,11 @@ TARGET_COPY_OUT_VENDOR := vendor
 
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 
-# Recovery
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/recovery.fstab
-
 # RIL
 TARGET_RIL_VARIANT := caf
 
 # Seccomp
 BOARD_SECCOMP_POLICY := $(DEVICE_PATH)/seccomp
-
-# Sensors
-USE_SENSOR_MULTI_HAL := true
 
 # Treble
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
