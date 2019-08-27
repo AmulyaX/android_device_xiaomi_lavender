@@ -127,6 +127,9 @@ TARGET_USES_OVERLAY := true
 USE_OPENGL_RENDERER := true
 BOARD_USE_LEGACY_UI := true
 
+# DRM
+TARGET_ENABLE_MEDIADRM_64 := true
+
 # GPS
 TARGET_NO_RPC := true
 USE_DEVICE_SPECIFIC_GPS := true
@@ -220,9 +223,6 @@ ifeq ($(HOST_OS),linux)
       endif
     endif
 endif
-
-#Enable DRM plugins 64 bit compilation
-TARGET_ENABLE_MEDIADRM_64 := true
 
 # inherit from the proprietary version
 -include vendor/xiaomi/lavender/BoardConfigVendor.mk
