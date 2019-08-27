@@ -170,6 +170,10 @@ PRODUCT_PACKAGES += \
     vendor.display.color@1.0-service \
     vendor.display.color@1.0-impl
 
+RODUCT_PACKAGES += \
+    android.hardware.configstore@1.1-service \
+    android.hardware.broadcastradio@1.0-impl
+
 # FBE support
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/bin/init.qti.qseecomd.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qti.qseecomd.sh
