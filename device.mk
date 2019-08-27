@@ -201,9 +201,15 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_PACKAGES += \
-    gps.sdm660 \
-    libcurl \
-    libgnsspps
+    android.hardware.gnss@1.0-impl-qti \
+    android.hardware.gnss@1.0-service-qti \
+    libgnss \
+    libgnsspps \
+    libsensorndkbridge \
+    libvehiclenetwork-native
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/gps/etc/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf 
 
 # IPv6
 PRODUCT_PACKAGES += \
