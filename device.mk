@@ -301,6 +301,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
 	android.hardware.usb@1.0-service
 
+# VNDK
+PRODUCT_PACKAGES += \
+	libstdc++.vendor \
+    vndk-ext \
+    vndk_package
+
 # Wifi
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
@@ -380,9 +386,6 @@ SDM660_DISABLE_MODULE := true
 PRODUCT_PROPERTY_OVERRIDES += sys.autosuspend.timeout=500000
 
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE:=true
-
-# Enable vndk-sp Libraries
-PRODUCT_PACKAGES += vndk_package
 
 TARGET_MOUNT_POINTS_SYMLINKS := false
 
