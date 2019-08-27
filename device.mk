@@ -250,9 +250,6 @@ PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl \
     android.hardware.vibrator@1.0-service \
 
-PRODUCT_PACKAGES += \
-	android.hardware.usb@1.0-service
-
 # Ramdisk
 PRODUCT_PACKAGES += \
     init.class_late.sh \
@@ -299,6 +296,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.sensors.facing=false \
     ro.vendor.sensors.cmc=false \
     ro.vendor.sdk.sensors.gestures=false
+
+# USB
+PRODUCT_PACKAGES += \
+	android.hardware.usb@1.0-service
 
 # Wifi
 PRODUCT_PACKAGES += \
