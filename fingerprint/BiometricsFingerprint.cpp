@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#define LOG_TAG "android.hardware.biometrics.fingerprint@2.1-service.xiaomi_sdm660"
+#define LOG_TAG "android.hardware.biometrics.fingerprint@2.1-service.xiaomi_lavender"
 
 #include <hardware/hw_auth_token.h>
 
@@ -213,7 +213,7 @@ IBiometricsFingerprint* BiometricsFingerprint::getInstance() {
 }
 
 void setFpVendorProp(const char *fp_vendor) {
-    property_set("persist.sys.fp.vendor", fp_vendor);
+    property_set("persist.vendor.sys.fp.vendor", fp_vendor);
     property_set("ro.boot.fpsensor", fp_vendor);
 }
 
