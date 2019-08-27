@@ -54,6 +54,8 @@ on fs
     mkdir /mnt/vendor/persist/bms 0700 root system
     restorecon_recursive /mnt/vendor/persist
     write /sys/kernel/boot_adsp/boot 1
+    chown system system /dev/goodix_fp
+    #chmod 0644 /dev/goodix_fp
 
     chmod 0664 /sys/class/thermal/thermal_message/sconfig
     chown system system /sys/class/thermal/thermal_message/sconfig
@@ -129,6 +131,7 @@ on boot
 
     chown wifi wifi /sys/module/wlan/parameters/fwpath
 
+    insmod /vendor/lib/modules/qca_cld3_wlan.ko
 #USB controller configuration
     setprop vendor.usb.rndis.func.name "rndis_bam"
     setprop vendor.usb.rmnet.func.name "rmnet_bam"
@@ -234,6 +237,11 @@ service thermal-engine /system/vendor/bin/thermal-engine
 #    class core
 #    oneshot
 #
+service time_daemon /system/vendor/bin/time_daemon
+   class late_start
+   user root
+   group root
+
 #service security-check2 /sbin/security_boot_check recovery
 #    class core
 #    oneshot
