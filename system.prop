@@ -3,7 +3,7 @@
 #
 
 #rild.libpath=/system/lib/libreference-ril.so
-rild.libpath=/system/vendor/lib64/libril-qc-qmi-1.so
+rild.libpath=/system/vendor/lib64/libril-qc-hal-qmi.so
 #rild.libargs=-d /dev/smd0
 persist.rild.nitz_plmn=
 persist.rild.nitz_long_ons_0=
@@ -20,12 +20,15 @@ DEVICE_PROVISIONED=1
 #
 # Set network mode to (T/L/G/W/1X/EVDO, T/G/W/L) for 7+5 mode device on DSDS mode
 #
-ro.telephony.default_network=22,20
+ro.telephony.default_network=9,9
 
 debug.sf.enable_hwc_vds=1
 debug.sf.hw=1
 debug.sf.latch_unsignaled=1
-debug.gralloc.enable_fb_ubwc=1
+#add for screen fliker
+debug.gralloc.gfx_ubwc_disable=1
+debug.gralloc.enable_fb_ubwc=0
+sdm.debug.rotator_disable_ubwc=1
 dalvik.vm.heapsize=36m
 dev.pm.dyn_samplingrate=1
 persist.demo.hdmirotationlock=false
@@ -127,6 +130,9 @@ persist.data.df.dev_name=rmnet_usb0
 # 2 or anything else is camera2
 persist.radio.VT_CAM_INTERFACE=2
 
+# cherrypick form d2s  for video call
+persist.vendor.qti.telephony.vt_cam_interface=1
+
 #property to enable user to access Google WFD settings
 persist.debug.wfd.enable=1
 #Enable stm-events
@@ -168,19 +174,34 @@ ro.vendor.qti.sys.fw.bg_apps_limit=60
 
 #Settings to enable sensors
 #Device Orientation sensor
-ro.vendor.sensors.dev_ori=true
+ro.vendor.sensors.dev_ori=false
 #Persistent Motion Detector
 ro.vendor.sensors.pmd=true
 #Stationary Detector
 ro.vendor.sensors.sta_detect=true
 #Motion Detector
 ro.vendor.sensors.mot_detect=true
+#enable pickup gesture
+ro.vendor.sensors.pug = true
 
 #Expose aux camera for below packages
-vendor.camera.aux.packagelist=org.codeaurora.snapcam
+camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera
+vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera
+
+# enable b-services aging propagation
+ro.vendor.qti.sys.fw.bservice_enable=true
 
 #disable UBWC for camera
 persist.vendor.camera.preview.ubwc=0
+persist.vendor.camera.isp.clock.optmz=0
+persist.vendor.camera.isp.turbo=1
+persist.vendor.camera.imglib.usefdlite=1
+persist.vendor.camera.expose.aux=1
+persist.vendor.camera.HAL3.enabled=1
+
+# add for exif info
+persist.vendor.camera.manufacturer=Xiaomi
+persist.vendor.camera.model=Redmi Note 7
 
 #set maximum supported adapter voltage
 persist.chg.max_volt_mv=9000
@@ -190,11 +211,48 @@ vendor.bluetooth.soc=cherokee
 ro.bluetooth.library_name=libbluetooth_qti.so
 persist.vendor.btstack.enable.splita2dp=true
 persist.vendor.btstack.a2dp_offload_cap=sbc-aptx-aptxhd-aac
+persist.vendor.btstack.avrcp-playstatus.blacklist=true
 
 # Property for backup NTP Server
 persist.backup.ntpServer="0.pool.ntp.org"
 # enable IZat OptInApp overlay
 persist.vendor.overlay.izat.optin=rro
+
+#disable awb sync in bokeh mode
+persist.vendor.camera.awb.sync=2
+
+#lct.ydt 20180911 add for voWIFI
+#iwaln vowifi corresponding
+persist.vendor.data.iwlan.enable=true
+
+#HTH-30190 connect wifi, set 3G pre,observe Mobile network type should display UMTS but IWLAN.
+persist.vendor.radio.data_con_rprt=1
+
+#lct.ydt 20180911 add for ignore OOS 5 seconds
+persist.vendor.radio.snapshot_enabled=1
+persist.vendor.radio.snapshot_timer=5
+persist.radio.sib16_support=1
+
+#lct liuxuan add the dom ignore time
+persist.vendor.radio.ignore_dom_time=15
+
+#add for color invert
+ro.vendor.df.effect.conflict=1
+persist.sys.df.extcolor.proc=0
+#paper mode
+sys.paper_mode_max_level=255
+sys.tianma_nt36672a_offset=6
+sys.tianma_nt36672a_length=42
+sys.boe_td4320_offset=-9
+sys.boe_td4320_length=42
+sys.shenchao_nt36672a_offset=-10
+sys.shenchao_nt36672a_length=38
+
+#enable all system restart_level to relative
+persist.vendor.ssr.restart_level=ALL_ENABLE
+
+#thermal configs path
+sys.thermal.data.path=/data/vendor/thermal/
 
 # ro.location properties below are used in conjunction
 # with NLP_MODE setting in /vendor/etc/izat.conf
