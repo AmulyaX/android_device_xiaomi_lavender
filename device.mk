@@ -4,6 +4,8 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+$(call inherit-product, vendor/xiaomi/lavender/lavender-vendor.mk)
+
 # Overlays
 DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
 
