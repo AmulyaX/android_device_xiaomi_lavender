@@ -117,6 +117,10 @@ on boot
     #chmod 0771 /data/vendor/charge_logger
     #chown root root /data/vendor/charge_logger
 
+#DT2W
+    chown system system /proc/tp_gesture
+    chmod 0660 /proc/tp_gesture
+
 #Create folder dump yuv images while debugging
     mkdir /data/vendor/camera 0770 camera camera
 
