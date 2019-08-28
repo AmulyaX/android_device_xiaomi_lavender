@@ -29,8 +29,6 @@ TARGET_2ND_CPU_VARIANT := cortex-a73
 
 TARGET_USES_64_BIT_BINDER := true
 
--include $(QCPATH)/common/sdm660_64/BoardConfigVendor.mk
-
 # Some framework code requires this to enable BT
 BOARD_HAVE_BLUETOOTH := true
 BOARD_USES_WIPOWER := true
@@ -152,3 +150,6 @@ BOARD_SYSTEMSDK_VERSIONS:=28
 
 #All vendor APK will be compiled against system_current API set.
 BOARD_VNDK_VERSION := current
+
+# inherit from the proprietary version
+-include vendor/xiaomi/lavender/BoardConfigVendor.mk
