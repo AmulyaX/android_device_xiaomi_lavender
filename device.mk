@@ -27,6 +27,10 @@ $(call inherit-product, device/xiaomi/sdm660-common/sdm660.mk)
 # Device Path
 DEVICE_PATH := device/xiaomi/jasmine_sprout
 
+# Soong
+PRODUCT_SOONG_NAMESPACES += \
+    $(DEVICE_PATH)
+
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
 	 $(DEVICE_PATH)/overlay

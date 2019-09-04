@@ -1,3 +1,5 @@
 subdirs = [
     "*"
 ]
+soong_namespace {
+}
