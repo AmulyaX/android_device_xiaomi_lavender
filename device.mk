@@ -19,7 +19,9 @@ DEVICE_PACKAGE_OVERLAYS := \
 	$(LOCAL_PATH)/overlay \
     $(LOCAL_PATH)/overlay-lineage
 
-PRODUCT_ENFORCE_RRO_TARGETS := *
+# RRO
+PRODUCT_ENFORCE_RRO_TARGETS := \
+    framework-res
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -395,6 +397,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Sensor HAL conf file
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
+
+# Shims
+PRODUCT_PACKAGES += \
+    camera.sdm660_shim
 
 # Telephony
 PRODUCT_PACKAGES += \
