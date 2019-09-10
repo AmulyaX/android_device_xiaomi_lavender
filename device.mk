@@ -432,9 +432,12 @@ PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-service
 
 # VNDK
+# Update this list with what each blob is actually for
+# libicuuc: vendor.qti.hardware.qteeconnector@1.0-impl
+# libstdc++: camera.sdm660
 PRODUCT_PACKAGES += \
-	libstdc++.vendor \
-    vndk-ext \
+    libicuuc.vendor \
+    libstdc++.vendor \
     vndk_package
 
 # Wifi
