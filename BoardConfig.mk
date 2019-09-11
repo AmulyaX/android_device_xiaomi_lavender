@@ -45,9 +45,6 @@ DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 # Platform
 BOARD_VENDOR_PLATFORM := xiaomi-sdm660
 
-# Root Folders
-BOARD_ROOT_EXTRA_FOLDERS := persist
-
 # Vendor Security patch level
 VENDOR_SECURITY_PATCH := 2018-06-05
 
