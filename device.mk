@@ -68,12 +68,8 @@ PRODUCT_PACKAGES += \
 	android.hardware.boot@1.0-impl \
 	android.hardware.boot@1.0-service \
 	bootctrl.sdm660 \
-
-PRODUCT_STATIC_BOOT_CONTROL_HAL := \
-	bootctrl.sdm660 \
-	libcutils \
-	libgptutils \
-	libz
+        android.hardware.boot@1.0-impl.recovery \
+        bootctrl.sdm660.recovery
 
 # Consumerir
 PRODUCT_PACKAGES += \
