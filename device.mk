@@ -6,6 +6,8 @@
 
 $(call inherit-product, vendor/xiaomi/lavender/lavender-vendor.mk)
 
+PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
+
 # Vendor properties
 -include $(LOCAL_PATH)/vendor_prop.mk
 
