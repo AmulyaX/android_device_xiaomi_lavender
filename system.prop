@@ -94,6 +94,7 @@ ro.vendor.display.cabl=2
 # System props for telephony
 # System prop to turn on CdmaLTEPhone always
 telephony.lteOnCdmaDevice=1
+ro.telephony.iwlan_operation_mode=legacy
 
 #Simulate sdcard on /data/media
 #
