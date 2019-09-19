@@ -24,6 +24,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.vendor.radio.custom_ecc=1 \
 	persist.vendor.radio.rat_on=combine \
 	persist.vendor.radio.procedure_bytes=SKIP \
+	persist.vendor.radio.flexmap_type=none \
 	persist.backup.ntpServer=0.pool.ntp.org \
 	sys.vendor.shutdown.waittime=500 \
 	ro.build.shutdown_timeout=0 \
