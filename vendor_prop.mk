@@ -34,6 +34,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.bluetooth.bluetooth_audio_hal.disabled=true \
 	af.fast_track_multiplier=1 \
 	vendor.audio_hal.period_size=192 \
+	vendor.audio.snd_card.open.retries=50 \
 	ro.vendor.audio.sdk.fluencetype=none \
 	persist.vendor.audio.fluence.voicecall=true \
 	persist.vendor.audio.fluence.voicerec=false \
