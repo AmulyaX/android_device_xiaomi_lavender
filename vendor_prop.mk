@@ -76,7 +76,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.vendor.sdk.sensors.gestures=false \
 	rild.libpath=/system/vendor/lib64/libril-qc-hal-qmi.so \
 	ro.vendor.audio.voice.volume.boost=manual \
-	sys.autosuspend.timeout=500000 \
 	persist.dbg.ims_volte_enable=1 \
         persist.dbg.volte_avail_ovr=1 \
         persist.dbg.vt_avail_ovr=1 \

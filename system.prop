@@ -143,13 +143,6 @@ persist.sys.wfd.virtual=0
 # system prop for NFC DT
 ro.nfc.port=I2C
 
-#property for vendor specific library
-ro.vendor.at_library=libqti-at.so
-
-#min/max cpu in core control
-ro.vendor.qti.core_ctl_min_cpu=2
-ro.vendor.qti.core_ctl_max_cpu=4
-
 #hwui properties
 ro.hwui.texture_cache_size=72
 ro.hwui.layer_cache_size=48
@@ -168,9 +161,6 @@ persist.vendor.radio.atfwd.start=true
 
 #property to enable VDS WFD solution
 persist.hwc.enable_vds=1
-
-#Increase cached app limit
-ro.vendor.qti.sys.fw.bg_apps_limit=60
 
 #Settings to enable sensors
 #Device Orientation sensor
@@ -251,18 +241,3 @@ sys.shenchao_nt36672a_length=38
 
 #thermal configs path
 sys.thermal.data.path=/data/vendor/thermal/
-
-# ro.location properties below are used in conjunction
-# with NLP_MODE setting in /vendor/etc/izat.conf
-# either as the main network provider or as a fallback
-# provider depending on NLP_MODE that is set
-# These properties are optional and will not cause
-# issues if not set to existing packages.
-# ro.location.osnlp.package sets the name of default
-# OS sepecific network location provider package to use
-# ro.location.osnlp.region.package is set to the name
-# of the alternative network location provider package
-# to be used for a particular region where the default
-# network location provider is not functional
-ro.location.osnlp.package=com.google.android.gms
-ro.location.osnlp.region.package=
