@@ -171,8 +171,8 @@ RODUCT_PACKAGES += \
     android.hardware.broadcastradio@1.0-impl
 
 # Doze
-PRODUCT_PACKAGES += \
-    XiaomiDoze
+#PRODUCT_PACKAGES += \
+#    XiaomiDoze
 
 # DRM
 PRODUCT_PACKAGES += \
