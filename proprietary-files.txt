@@ -1176,15 +1176,15 @@ vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so
 # DRM
 vendor/bin/qseecomd
 vendor/lib/libQSEEComAPI.so
-vendor/lib/libsdedrm.so
 vendor/lib64/libdrmfs.so
 vendor/lib64/libdrmtime.so
 vendor/lib64/libGPreqcancel_svc.so
 vendor/lib64/libGPreqcancel.so
+vendor/lib64/libhdcpsrm.so
+vendor/lib64/liboemcrypto.so
 vendor/lib64/libqisl.so
 vendor/lib64/libQSEEComAPI.so
 vendor/lib64/librpmb.so
-vendor/lib64/libsdedrm.so
 vendor/lib64/libsecureui_svcsock.so
 vendor/lib64/libsecureui.so
 vendor/lib64/libSecureUILib.so
@@ -1382,10 +1382,12 @@ vendor/lib64/libhdr_tm.so
 # Graphics (SDM) - from LA.UM.7.2.r1-06900-sdm660.0
 vendor/lib/libqseed3.so
 vendor/lib/libsdm-color.so|8e083bb2a20ecf76bf96e303134cbaa9ce46be81
+vendor/lib/libsdedrm.so|14659302ccd3df6929debd931a1a7258739ca144
 vendor/lib/libsdm-diag.so
 vendor/lib/libsdmextension.so|28689c462e1ff5ab88fe7776eb35a164eb37f337
 vendor/lib/libtinyxml2_1.so|0960b3c008d818be73774e345c2f0f1c1e5873cd
 vendor/lib64/libqseed3.so
+vendor/lib64/libsdedrm.so|dfc54b03ea50147b7143966a5c1a4df2710d2205
 vendor/lib64/libsdm-color.so|1a9b68e5f2f09d37c2fa83907a6a70c7adb081f5
 vendor/lib64/libsdm-diag.so
 vendor/lib64/libsdm-disp-vndapis.so|d93f262f60b58f32273909142aa7fdc7bfb6dda3
