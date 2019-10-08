@@ -82,7 +82,7 @@ BOOT_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
 
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
+    device/xiaomi/lavender
 
 # Permissions
 PRODUCT_COPY_FILES += \
