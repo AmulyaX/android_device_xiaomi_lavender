@@ -194,7 +194,6 @@ TARGET_USERIMAGES_USE_F2FS := true
 BOARD_VENDORIMAGE_PARTITION_SIZE := 2080305152
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_ROOT_EXTRA_SYMLINKS := \
-    /mnt/vendor/persist:/persist \
     /vendor/dsp:/dsp \
     /vendor/firmware_mnt:/firmware \
     /vendor/bt_firmware:/bt_firmware \
