@@ -218,7 +218,7 @@ TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
 BOARD_SECCOMP_POLICY := $(DEVICE_PATH)/seccomp
 
 # Security patch level
-VENDOR_SECURITY_PATCH := 2018-06-05
+VENDOR_SECURITY_PATCH := 2019-10-05
 
 # SELinux
 include device/qcom/sepolicy-legacy-um/sepolicy.mk
