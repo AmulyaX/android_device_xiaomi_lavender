@@ -24,20 +24,14 @@
 include device/xiaomi/sdm660-common/BoardConfigCommon.mk
 
 # Device Path
-DEVICE_PATH := device/xiaomi/jasmine_sprout
-
-# A/B
-AB_OTA_UPDATER := true
-BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
-BOARD_USES_RECOVERY_AS_BOOT := true
-TARGET_NO_RECOVERY := true
+DEVICE_PATH := device/xiaomi/lavender
 
 # DT2W
-TARGET_TAP_TO_WAKE_NODE := "/proc/nvt_wake_gesture"
+TARGET_TAP_TO_WAKE_NODE := "/proc/tp_gesture"
 
 # Kernel
-TARGET_KERNEL_SOURCE := kernel/xiaomi/sdm660
-TARGET_KERNEL_CONFIG := jasmine-perf_defconfig
+TARGET_KERNEL_SOURCE := kernel/xiaomi/lavender
+TARGET_KERNEL_CONFIG := lavender-perf_defconfig
 
 # Manifest
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
@@ -50,8 +44,3 @@ VENDOR_SECURITY_PATCH := 2018-06-05
 
 # WLAN MAC
 WLAN_MAC_SYMLINK := true
-
--include device/twrp/jasmine_sprout/twrp.mk
-
-# TWRP Support
-include $(DEVICE_PATH)/twrp.mk

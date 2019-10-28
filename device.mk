@@ -25,7 +25,7 @@
 $(call inherit-product, device/xiaomi/sdm660-common/sdm660.mk)
 
 # Device Path
-DEVICE_PATH := device/xiaomi/jasmine_sprout
+DEVICE_PATH := device/xiaomi/lavender
 
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
@@ -35,43 +35,14 @@ PRODUCT_SOONG_NAMESPACES += \
 DEVICE_PACKAGE_OVERLAYS += \
 	 $(DEVICE_PATH)/overlay
 
-# A/B
-AB_OTA_UPDATER := true
-AB_OTA_PARTITIONS += \
-	boot \
-	system \
-	vendor
-
-AB_OTA_POSTINSTALL_CONFIG += \
-	RUN_POSTINSTALL_system=true \
-	POSTINSTALL_PATH_system=system/bin/otapreopt_script \
-	FILESYSTEM_TYPE_system=ext4 \
-	POSTINSTALL_OPTIONAL_system=true
-
-PRODUCT_PACKAGES += \
-	otapreopt_script
-
 # Audio
 PRODUCT_COPY_FILES += \
 	$(DEVICE_PATH)/audio/audio_platform_info_intcodec.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info_intcodec.xml \
 	$(DEVICE_PATH)/audio/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml
 
 # Boot animation
-TARGET_SCREEN_HEIGHT := 2160
+TARGET_SCREEN_HEIGHT := 2340
 TARGET_SCREEN_WIDTH := 1080
-
-PRODUCT_CHARACTERISTICS := nosdcard
-
-# Boot control
-PRODUCT_PACKAGES += \
-	android.hardware.boot@1.0-impl \
-	android.hardware.boot@1.0-service \
-	bootctrl.sdm660 \
-        android.hardware.boot@1.0-impl.recovery \
-        bootctrl.sdm660.recovery
-
-PRODUCT_PACKAGES_DEBUG += \
-        bootctl
 
 # Consumerir
 PRODUCT_PACKAGES += \
@@ -106,38 +77,17 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 PRODUCT_COPY_FILES += \
 	$(DEVICE_PATH)/sensors/sensor_def_qcomdev.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/sensor_def_qcomdev.conf
 
-# Update engine
-PRODUCT_PACKAGES += \
-	update_engine \
-	update_engine_sideload \
-	update_verifier
-
-PRODUCT_HOST_PACKAGES += \
-        brillo_update_payload
-
-PRODUCT_PACKAGES_DEBUG += \
-	update_engine_client
-
 # Vibrator
 PRODUCT_PACKAGES += \
 	android.hardware.vibrator@1.0-impl \
 	android.hardware.vibrator@1.0-service
 
-# Watermark
-PRODUCT_COPY_FILES += \
-	$(DEVICE_PATH)/media/MIUI_DualCamera_watermark_A2.png:$(TARGET_COPY_OUT_VENDOR)/etc/MIUI_DualCamera_watermark.png
-
-# Verity
-PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc/c0c4000.sdhci/by-name/system
-PRODUCT_VENDOR_VERITY_PARTITION := /dev/block/platform/soc/c0c4000.sdhci/by-name/vendor
-$(call inherit-product, build/target/product/verity.mk)
-
 # Vendor files
-$(call inherit-product, vendor/xiaomi/wayne/wayne-vendor.mk)
+$(call inherit-product, vendor/xiaomi/lavender/lavender-vendor.mk)
 
 # AOSP DEVICE
-PRODUCT_NAME := aosp_jasmine_sprout
-PRODUCT_DEVICE := jasmine_sprout
-PRODUCT_MODEL := Mi A2 (AOSP)
+PRODUCT_NAME := aosp_lavender
+PRODUCT_DEVICE := lavender
+PRODUCT_MODEL := Redmi Note 7 (AOSP)
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MANUFACTURER := Xiaomi
