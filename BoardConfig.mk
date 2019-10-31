@@ -40,6 +40,7 @@ TARGET_TAP_TO_WAKE_NODE := "/proc/tp_gesture"
 
 # Enable System As Root even for non-A/B from P onwards
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
+BOARD_KERNEL_CMDLINE += skip_initramfs rootwait ro init=/init
 
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/xiaomi/lavender
