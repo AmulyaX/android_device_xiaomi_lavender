@@ -468,3 +468,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libnl \
     libwfdaac
+    
+PRODUCT_BOOT_JARS += \
+    WfdCommon
