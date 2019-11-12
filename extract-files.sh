@@ -14,9 +14,9 @@ VENDOR=xiaomi
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
-LINEAGE_ROOT="${MY_DIR}"/../../..
+AOSIP_ROOT="${MY_DIR}"/../../..
 
-HELPER="${LINEAGE_ROOT}/vendor/lineage/build/tools/extract_utils.sh"
+HELPER="${AOSIP_ROOT}/vendor/lineage/build/tools/extract_utils.sh"
 if [ ! -f "${HELPER}" ]; then
     echo "Unable to find helper script at ${HELPER}"
     exit 1
@@ -49,7 +49,7 @@ if [ -z "${SRC}" ]; then
     SRC="adb"
 fi
 
-BLOB_ROOT="$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary
+BLOB_ROOT="$AOSIP_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary
 
 patchelf --remove-needed vendor.xiaomi.hardware.mtdservice@1.0.so "$BLOB_ROOT"/vendor/bin/mlipayd@1.1
 patchelf --remove-needed vendor.xiaomi.hardware.mtdservice@1.0.so "$BLOB_ROOT"/vendor/lib64/libmlipay.so
@@ -60,7 +60,7 @@ CAM_SDM660="$DEVICE_BLOB_ROOT"/vendor/lib/hw/camera.sdm660.so
 patchelf --add-needed camera.sdm660_shim.so "$CAM_SDM660"
 
 # Initialize the helper
-setup_vendor "${DEVICE}" "${VENDOR}" "${LINEAGE_ROOT}" false "${CLEAN_VENDOR}"
+setup_vendor "${DEVICE}" "${VENDOR}" "${AOSIP_ROOT}" false "${CLEAN_VENDOR}"
 
 extract "${MY_DIR}/proprietary-files.txt" "${SRC}" \
         "${KANG}" --section "${SECTION}"
