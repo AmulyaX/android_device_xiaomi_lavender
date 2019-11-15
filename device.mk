@@ -206,7 +206,7 @@ PRODUCT_PACKAGES += \
 
 # fwk-detect
 PRODUCT_PACKAGES += \
-    libqti_vndfwk_detect
+    libqti_vndfwk_detect.vendor
 
 # Gatekeeper HAL
 PRODUCT_PACKAGES += \
