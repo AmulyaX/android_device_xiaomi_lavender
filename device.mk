@@ -5,6 +5,7 @@
 #
 
 $(call inherit-product, vendor/xiaomi/lavender/lavender-vendor.mk)
+$(call inherit-product, vendor/xiaomi/sdm660-common/sdm660-common-vendor.mk)
 
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 
