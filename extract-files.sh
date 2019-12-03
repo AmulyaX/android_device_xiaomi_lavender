@@ -63,6 +63,7 @@ patchelf --add-needed camera.sdm660_shim.so "$CAM_SDM660"
 setup_vendor "${DEVICE}" "${VENDOR}" "${AOSIP_ROOT}" false "${CLEAN_VENDOR}"
 
 extract "${MY_DIR}/proprietary-files.txt" "${SRC}" \
+        "${MY_DIR}/proprietary-files-qc.txt" "${SRC}" \
         "${KANG}" --section "${SECTION}"
 
 "${MY_DIR}/setup-makefiles.sh"
