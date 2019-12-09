@@ -16,11 +16,42 @@
      limitations under the License.
 -->
 <resources>
+    <string name="advanced_settings">Dodatki Xiaomi</string>
+    <string name="advanced_settings_summary">Dodatkowe ustawienia</string>
+
+    <string name="display_title">Ekran</string>
+
+    <!-- KCal -->
+    <string name="device_kcal_title">Kalibracja kolorów</string>
+
+    <!-- Ambient Display -->
+    <string name="ambient_display_xiaomi">Aktywny wyświetlacz</string>
+    <string name="advanced_doze_summary">Xiaomi Doze</string>
+
+    <string name="vibration_title">Wibracja</string>
+    <string name="vibration_strength_title">Siła</string>
+
+    <!-- Thermal Profiles -->
+    <string name="thermal_profile_title">Wydajność</string>
+    <string name="thermal_title">Ustawienia wydajności</string>
+    <string name="thermal_summary">Wybierz profil wydajności</string>
+    <string name="thermal_dialogTitle">Wybierz profil wydajności</string>
+
+    <!-- Values for Thermal Presets -->
+    <string name="thermal_performance">Wydajność</string>
+    <string name="thermal_battery">Oszczędzanie energii</string>
+    <string name="thermal_gaming">Gry</string>
+    <string name="thermal_balance">Zbalansowany</string>
+    <string name="thermal_extreme_battery">Ekstremalne oszczędzanie baterii</string>
+
+    <string name="audio_title">Dźwięk</string>
+
     <!-- Dirac settings -->
     <string name="dirac_title">Ulepszanie dźwięku Mi</string>
     <string name="dirac_summary">Optymalizuj jakość dźwięku</string>
     <string name="dirac_headset_title">Typ słuchawek</string>
     <string name="dirac_preset_title">Wybierz konfigurację</string>
+
     <!-- Dirac settings: Headset types -->
     <string name="dirac_headset_default">Domyślny</string>
     <string name="dirac_headset_earbuds">Douszne Mi</string>
@@ -44,6 +75,7 @@
     <string name="dirac_headset_in_ear2">Mi dokanałowe 2</string>
     <string name="dirac_headset_earphone_basic">Słuchawki douszne Mi Basic</string>
     <string name="dirac_headset_earphone">Słuchawki douszne Mi</string>
+
     <!-- Dirac settings: Equalizer presets -->
     <string name="dirac_preset_default">Domyślny</string>
     <string name="dirac_preset_rock">Rock</string>
@@ -56,4 +88,49 @@
     <string name="dirac_preset_country">Country</string>
     <string name="dirac_preset_dance">Taniec</string>
     <string name="dirac_preset_metal">Metal</string>
+    
+    <!-- kcal -->
+    <string name="advanced_settings_kcal">Kalibracja kolorów</string>
+    <string name="cat_colormanagement">Ustawienia kolorów</string>
+    <string name="cat_calibration">Ustawienia ekranu</string>
+
+    <string name="kcal_enabled">Włączone</string>
+    <string name="kcal_disabled">Wyłączone</string>
+    <string name="set_on_boot">Ustaw przy uruchomieniu</string>
+    <string name="color_red">Czerwony</string>
+    <string name="color_green">Zielony</string>
+    <string name="color_blue">Niebieski</string>
+    <string name="color_minimum">Minimum</string>
+    <string name="saturation">Nasycenie</string>
+    <string name="value">Wartość</string>
+    <string name="contrast">Kontrast</string>
+    <string name="hue">Odcień</string>
+    <string name="grayscale">Skala Szarości</string>
+
+    <string name="presets_dialog_title">Wybierz ustawienie</string>
+    <!-- Presets -->
+    <string name="preset_default">Domyślne</string>
+    <string name="preset_version_1">Wersja 1</string>
+    <string name="preset_version_2">Wersja 2</string>
+    <string name="preset_version_3">Wersja 3</string>
+    <string name="preset_triluminous">Triluminous</string>
+    <string name="preset_deep_black_white">Głęboka czerń i biel</string>
+    <string name="preset_deep_natural">Naturalny</string>
+    <string name="preset_cool_amoled">Fajny Amoled</string>
+    <string name="preset_extreme_amoled">Ekstremalny Amoled</string>
+    <string name="preset_warm_amoled">Ciepły Amoled</string>
+    <string name="preset_hybrid_mamba">Hybrid Mamba</string>
+
+
+    <string name="hall_wakeup_title">Obudź przez Etui</string>
+    <string name="hall_title">Włącz Obudź przez Etui</string>
+    <string name="hall_wakeup_summary">Obudź urządzenie przez otwarcie etui</string>
+    <!-- menu -->
+    <string name="kcal_presets">@string/presets_dialog_title</string>
+    <string name="kcal_reset">Zresetuj</string>
+
+    <!-- CustomSeekBarPreference -->
+    <string name="edit_value">Ustaw nową wartość</string>
+    <string name="default_value">Domyślna</string>
+    <string name="edit_hint">Wartość pomiędzy %1$d, a %2$d</string>
 </resources>
