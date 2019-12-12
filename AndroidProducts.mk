@@ -21,11 +21,11 @@
 # definition file).
 #
 
-# inherit MI A2 lineage device config
+# inherit lavender aosip device config
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_lavender.mk
+    $(LOCAL_DIR)/aosip_lavender.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_lavender-eng \
-    lineage_lavender-userdebug \
-    lineage_lavender-user
+    aosip_lavender-eng \
+    aosip_lavender-userdebug \
+    aosip_lavender-user
