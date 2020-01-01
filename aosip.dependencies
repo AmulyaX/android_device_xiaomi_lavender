@@ -1,0 +1,21 @@
+[
+  {
+    "repository"  : "AmulyaX/android_device_xiaomi_sdm660-common",
+    "target_path" : "device/xiaomi/sdm660-common"
+    "branch"      : "ten-common"
+  {
+    "repository"  : "AmulyaX/proprietary_vendor_xiaomi_lavender",
+    "target_path" : "vendor/xiaomi/lavender",
+    "branch"      : "ten-common"
+  },
+  {
+    "repository"  : "AmulyaX/android_vendor_xiaomi_sdm660-common",
+    "target_path" : "vendor/xiaomi/sdm660-common",
+    "branch"      : "ten-common"
+  },
+  {
+    "repository"  : "LineageOS/android_packages_resources_devicesettings",
+    "target_path" : "packages/resources/devicesettings",
+    "branch"      : "lineage-17.0"
+  }
+]
