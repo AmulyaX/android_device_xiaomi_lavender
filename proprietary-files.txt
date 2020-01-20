@@ -2,6 +2,12 @@
 vendor/lib/rfsa/adsp/nuance.scd
 
 # Audio
+vendor/bin/audioflacapp
+vendor/etc/audio.scd
+vendor/etc/diracvdd.bin
+vendor/etc/speaker.ftcfg
+vendor/firmware/dbmd4_va_fw.bin
+vendor/firmware/tfa98xx.cnt
 vendor/firmware/voice_amodel.bin
 vendor/lib/libacdb-fts.so
 vendor/lib/libacdbloader.so
@@ -10,7 +16,9 @@ vendor/lib/libadiertac.so
 vendor/lib/libadm.so
 vendor/lib/libaudcal.so
 vendor/lib/libaudioalsa.so
+vendor/lib/libaudioconfigstore.so
 vendor/lib/libaudioparsers.so
+-vendor/lib/libaudio_log_utils.so
 vendor/lib/libdrc.so
 vendor/lib/libqtigef.so
 vendor/lib/libsurround_3mic_proc.so
@@ -20,19 +28,29 @@ vendor/lib64/libacdbrtac.so
 vendor/lib64/libadiertac.so
 vendor/lib64/libaudcal.so
 vendor/lib64/libaudioalsa.so
+vendor/lib64/libaudioconfigstore.so
 vendor/lib64/libaudioparsers.so
+-vendor/lib64/libaudio_log_utils.so
 vendor/lib64/libqtigef.so
 
-# Audio ACDB
+# Audio-ACDB
+vendor/etc/acdbdata/adsp_avs_config.acdb
 vendor/etc/acdbdata/MTP/MTP_Bluetooth_cal.acdb
 vendor/etc/acdbdata/MTP/MTP_General_cal.acdb
 vendor/etc/acdbdata/MTP/MTP_Global_cal.acdb
 vendor/etc/acdbdata/MTP/MTP_Handset_cal.acdb
-vendor/etc/acdbdata/MTP/MTP_Headset_cal.acdb
 vendor/etc/acdbdata/MTP/MTP_Hdmi_cal.acdb
+vendor/etc/acdbdata/MTP/MTP_Headset_cal.acdb
 vendor/etc/acdbdata/MTP/MTP_Speaker_cal.acdb
 vendor/etc/acdbdata/MTP/MTP_workspaceFile.qwsp
-vendor/etc/acdbdata/adsp_avs_config.acdb
+vendor/etc/acdbdata/QRD/QRD_Bluetooth_cal.acdb
+vendor/etc/acdbdata/QRD/QRD_General_cal.acdb
+vendor/etc/acdbdata/QRD/QRD_Global_cal.acdb
+vendor/etc/acdbdata/QRD/QRD_Handset_cal.acdb
+vendor/etc/acdbdata/QRD/QRD_Hdmi_cal.acdb
+vendor/etc/acdbdata/QRD/QRD_Headset_cal.acdb
+vendor/etc/acdbdata/QRD/QRD_Speaker_cal.acdb
+vendor/etc/acdbdata/QRD/QRD_workspaceFile.qwsp
 
 # Camera
 vendor/lib/hw/camera.sdm660.so
@@ -1086,44 +1104,60 @@ vendor/lib64/libmmcamera_tintless_algo.so
 vendor/lib64/libmmcamera_tintless_bg_pca_algo.so
 
 # Consumerir
+vendor/bin/consumerird
 vendor/lib/hw/consumerir.default.so
 vendor/lib64/hw/consumerir.default.so
 
-# Display calibration
+# Display-calibration
 vendor/etc/qdcm_calib_data_boe_td4320_fhdplus_video_mode_dsi_panel.xml
 vendor/etc/qdcm_calib_data_shenchao_nt36672a_fhdplus_video_mode_dsi_panel.xml
 vendor/etc/qdcm_calib_data_tianma_nt36672a_fhdplus_video_mode_dsi_panel.xml
 
 # DRM
 vendor/bin/qseecomd
+vendor/lib/libbase64.so
+vendor/lib/libcpion.so
+vendor/lib/libcppf.so
+vendor/lib/libdrmfs.so
+vendor/lib/libdrmtime.so
+vendor/lib/libGPQTEEC_vendor.so
+vendor/lib/libGPreqcancel.so
+vendor/lib/libGPreqcancel_svc.so
+vendor/lib/libGPTEE_vendor.so
+vendor/lib/libqisl.so
 vendor/lib/libQSEEComAPI.so
+vendor/lib/librmp.so
+vendor/lib/librpmb.so
+vendor/lib/libsdedrm.so
+vendor/lib/libsecureui.so
+vendor/lib/libSecureUILib.so
+vendor/lib/libsecureui_svcsock.so
+vendor/lib/libsi.so
+vendor/lib/libssd.so
+vendor/lib/libStDrvInt.so
+vendor/lib/libtzdrmgenprov.so
+vendor/lib64/libbase64.so
+vendor/lib64/libcpion.so
 vendor/lib64/libdrmfs.so
 vendor/lib64/libdrmtime.so
-vendor/lib64/libGPreqcancel_svc.so
+vendor/lib64/libGPQTEEC_vendor.so
 vendor/lib64/libGPreqcancel.so
-vendor/lib64/libhdcpsrm.so
-vendor/lib64/liboemcrypto.so
+vendor/lib64/libGPreqcancel_svc.so
+vendor/lib64/libGPTEE_vendor.so
 vendor/lib64/libqisl.so
 vendor/lib64/libQSEEComAPI.so
+vendor/lib64/librmp.so
 vendor/lib64/librpmb.so
-vendor/lib64/libsecureui_svcsock.so
+vendor/lib64/libsdedrm.so
 vendor/lib64/libsecureui.so
 vendor/lib64/libSecureUILib.so
-vendor/lib64/libspl.so
+vendor/lib64/libsecureui_svcsock.so
+vendor/lib64/libsi.so
 vendor/lib64/libssd.so
 vendor/lib64/libStDrvInt.so
 vendor/lib64/libtzdrmgenprov.so
 
 # Fingerprint firmware
-etc/firmware/goodixfp.b00:vendor/firmware/goodixfp.b00
-etc/firmware/goodixfp.b01:vendor/firmware/goodixfp.b01
-etc/firmware/goodixfp.b02:vendor/firmware/goodixfp.b02
-etc/firmware/goodixfp.b03:vendor/firmware/goodixfp.b03
-etc/firmware/goodixfp.b04:vendor/firmware/goodixfp.b04
-etc/firmware/goodixfp.b05:vendor/firmware/goodixfp.b05
-etc/firmware/goodixfp.b06:vendor/firmware/goodixfp.b06
-etc/firmware/goodixfp.b07:vendor/firmware/goodixfp.b07
-etc/firmware/goodixfp.mdt:vendor/firmware/goodixfp.mdt
 vendor/firmware/fpctzappfingerprint.b00
 vendor/firmware/fpctzappfingerprint.b01
 vendor/firmware/fpctzappfingerprint.b02
@@ -1133,44 +1167,61 @@ vendor/firmware/fpctzappfingerprint.b05
 vendor/firmware/fpctzappfingerprint.b06
 vendor/firmware/fpctzappfingerprint.b07
 vendor/firmware/fpctzappfingerprint.mdt
+vendor/firmware/goodixfp.b00
+vendor/firmware/goodixfp.b01
+vendor/firmware/goodixfp.b02
+vendor/firmware/goodixfp.b03
+vendor/firmware/goodixfp.b04
+vendor/firmware/goodixfp.b05
+vendor/firmware/goodixfp.b06
+vendor/firmware/goodixfp.b07
+vendor/firmware/goodixfp.mdt
 
-# Fingerprint sensor
+# Fingerprint
 -vendor/app/FingerprintExtensionService/FingerprintExtensionService.apk
 -vendor/app/QFingerprintService/QFingerprintService.apk
 vendor/bin/qfp-daemon
 vendor/etc/permissions/com.fingerprints.extension.xml
+vendor/etc/permissions/qti_fingerprint_interface.xml
 vendor/framework/com.fingerprints.extension.jar
+vendor/lib/hw/fingerprint.default.so
 vendor/lib/vendor.qti.hardware.fingerprint@1.0.so
+vendor/lib64/com.fingerprints.extension@2.0.so
 vendor/lib64/hw/fingerprint.default.so
 vendor/lib64/hw/fingerprint.fpc.default.so
 vendor/lib64/hw/fingerprint.goodix.default.so
-vendor/lib64/com.fingerprints.extension@2.0.so
 vendor/lib64/libgf_ca.so
 vendor/lib64/libgf_hal.so
-vendor/lib64/libqfp-service.so
 vendor/lib64/libgoodixhwfingerprint.so
+vendor/lib64/libqfp-service.so
 vendor/lib64/libvendor.goodix.hardware.interfaces.biometrics.fingerprint@2.1.so
 vendor/lib64/vendor.qti.hardware.fingerprint@1.0.so
 
 # Gatekeeper
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
 vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
-vendor/lib/hw/gatekeeper.sdm660.so
 vendor/lib/hw/android.hardware.gatekeeper@1.0-impl-qti.so
-vendor/lib64/hw/gatekeeper.sdm660.so
 vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 
-# Keystore
+# Keymaster
+vendor/bin/hw/android.hardware.keymaster@3.0-service-qti
 vendor/bin/hw/android.hardware.keymaster@4.0-service-qti
 vendor/etc/init/android.hardware.keymaster@4.0-service-qti.rc
+vendor/lib/hw/android.hardware.keymaster@3.0-impl-qti.so
 vendor/lib/libkeymasterdeviceutils.so
 vendor/lib/libkeymasterprovision.so
 vendor/lib/libkeymasterutils.so
 vendor/lib/libqtikeymaster4.so
+vendor/lib64/hw/android.hardware.keymaster@3.0-impl-qti.so
 vendor/lib64/libkeymasterdeviceutils.so
 vendor/lib64/libkeymasterprovision.so
 vendor/lib64/libkeymasterutils.so
 vendor/lib64/libqtikeymaster4.so
+
+# Keystore
+vendor/lib64/libkeystore-engine-wifi-hidl.so
+vendor/lib64/libkeystore-wifi-hidl.so
+vendor/lib64/vendor.qti.hardware.wifi.keystore@1.0.so
 
 # Thermal
 vendor/etc/thermal-engine.conf
