@@ -92,7 +92,9 @@
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER_2" acdb_id="34"/>
         <device name="SND_DEVICE_OUT_VOICE_HEADPHONES" acdb_id="52"/>
         <device name="SND_DEVICE_OUT_VOICE_USB_HEADSET" acdb_id="52"/>
-        <device name="SND_DEVICE_OUT_VOICE_USB_HEADPHONES" acdb_id="52"/>
+		<device name="SND_DEVICE_OUT_VOICE_USB_HEADPHONES" acdb_id="52"/>
+        <device name="SND_DEVICE_OUT_BT_SCO" acdb_id="66"/>
+        <device name="SND_DEVICE_OUT_BT_SCO_WB" acdb_id="578"/>
         <device name="SND_DEVICE_OUT_VOICE_TX" acdb_id="52"/>
         <device name="SND_DEVICE_OUT_TRANSMISSION_FM" acdb_id="0"/>
         <device name="SND_DEVICE_OUT_SPEAKER_PROTECTED" acdb_id="124"/>
@@ -107,6 +109,10 @@
         <device name="SND_DEVICE_IN_HEADSET_MIC" acdb_id="51"/>
         <device name="SND_DEVICE_IN_VOICE_SPEAKER_MIC" acdb_id="291"/>
         <device name="SND_DEVICE_IN_VOICE_HEADSET_MIC" acdb_id="307"/>
+        <device name="SND_DEVICE_IN_BT_SCO_MIC" acdb_id="323"/>
+        <device name="SND_DEVICE_IN_BT_SCO_MIC_NREC" acdb_id="835"/>
+        <device name="SND_DEVICE_IN_BT_SCO_MIC_WB" acdb_id="1347"/>
+        <device name="SND_DEVICE_IN_BT_SCO_MIC_WB_NREC" acdb_id="1859"/>
         <device name="SND_DEVICE_IN_CAMCORDER_MIC" acdb_id="4"/>
         <device name="SND_DEVICE_IN_VOICE_DMIC" acdb_id="277"/>
         <device name="SND_DEVICE_IN_VOICE_SPEAKER_DMIC" acdb_id="293"/>
@@ -268,6 +274,8 @@
         <device name="SND_DEVICE_IN_HANDSET_MIC_ASR" interface="INT3_MI2S_TX"/>        
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER_AND_VOICE_HEADPHONES" backend="speaker-and-headphones" interface="INT4_MI2S_RX-and-INT0_MI2S_RX"/>
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER_AND_VOICE_ANC_HEADSET" backend="speaker-and-headphones" interface="INT4_MI2S_RX-and-INT0_MI2S_RX"/>
+		<device name="SND_DEVICE_OUT_SPEAKER_AND_BT_SCO_WB" backend="speaker-and-bt-sco-wb" interface="PRI_MI2S_RX-and-SLIMBUS_7_RX"/>
+		<device name="SND_DEVICE_OUT_SPEAKER_AND_BT_SCO" backend="speaker-and-bt-sco" interface="PRI_MI2S_RX-and-SLIMBUS_7_RX"/>        
         </backend_names>
     <!-- below values are for ref purpose to OEM, doesn't contain actual hardware info on MTP -->
     <microphone_characteristics>
@@ -641,4 +649,3 @@
         </input_snd_device>
     </snd_devices>
 </audio_platform_info>
-
