@@ -21,11 +21,11 @@
 # definition file).
 #
 
-# inherit lavender aosip device config
+# inherit lavender potato device config
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosip_lavender.mk
+    $(LOCAL_DIR)/potato_lavender.mk
 
 COMMON_LUNCH_CHOICES := \
-    aosip_lavender-eng \
-    aosip_lavender-userdebug \
-    aosip_lavender-user
+    potato_lavender-eng \
+    potato_lavender-userdebug \
+    potato_lavender-user
